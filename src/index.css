@@ -83,7 +83,7 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
+  font-family: "Roboto Slab", sans-serif;
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -124,4 +124,9 @@ table {
 }
 button {
   cursor: pointer;
+}
+body {
+  background-color: #463446;
+  background-image: linear-gradient(#9b786f, #463446);
+  background-repeat: no-repeat;
 }
