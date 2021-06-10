@@ -1,4 +1,3 @@
-import { makeStyles } from "@material-ui/core/styles";
 import {
   Card,
   CardActionArea,
@@ -6,39 +5,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
-
-const useStyles = makeStyles({
-  card: {
-    backgroundColor: "#463446",
-    width: "34rem",
-    height: "10rem",
-    borderRadius: "2rem",
-    textAlign: "center",
-  },
-  teste: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    color: "#FAED26",
-    padding: "1rem",
-    fontSize: "1rem",
-  },
-  habit: {
-    color: "#FAED26",
-    fontWeight: 800,
-    fontSize: "2rem",
-    letterSpacing: "0.35rem",
-  },
-  teste2: {
-    height: "100%",
-  },
-  times: {
-    color: "#FAED26",
-  },
-  icon: {
-    color: "green",
-  },
-});
+import useStyles from "./style";
 
 const CardDashboard = () => {
   const classes = useStyles();

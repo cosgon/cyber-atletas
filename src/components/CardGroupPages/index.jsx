@@ -8,6 +8,7 @@ import {
   Button,
   Card,
 } from "@material-ui/core";
+import axios from "axios";
 
 const CardGroupPages = ({
   allGroups,
@@ -30,9 +31,23 @@ const CardGroupPages = ({
     }
   };
 
+  const handleSubscribe = (id) => {
+    axios
+      .post(`https://kabit-api.herokuapp.com/groups/58/subscribe/`, {
+        headers: {
+          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIzNzI5Nzg3LCJqdGkiOiI0YWQ4YWNkYzdlMTQ0MTZiYTk5MDYxZDY5YmVkMmQwYyIsInVzZXJfaWQiOjY1NH0.axOE1tuRRBG9Qotm0y_j2VcEeD7to2f1eTi8WAqO9Vk`,
+        },
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error + " Error");
+      });
+  };
   return loading ? (
     <div className={classes.container}>
-      <CircularProgress color="#faed26" className={classes.loading} />
+      <CircularProgress className={classes.loading} />
     </div>
   ) : (
     <div className={classes.container}>
@@ -65,7 +80,7 @@ const CardGroupPages = ({
                 className={classes.subscribeButton}
                 variant="contained"
                 color="primary"
-                onClick={() => {}}
+                onClick={() => handleSubscribe(currentGroup.id)}
               >
                 inscreva-se
               </Button>
