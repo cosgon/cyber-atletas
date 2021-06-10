@@ -12,17 +12,20 @@ export const GroupsProvider = ({ children }) => {
 
   const token = JSON.parse(localStorage.getItem("token")) || "";
 
-  useEffect(() => {
+  const getGroups = () => {
     api
       .get("/groups/subscriptions/", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => setGroups(response.data));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  };
+
+  useEffect(() => {
+    getGroups();
   }, []);
 
   return (
-    <GroupsContext.Provider value={{ groups, setGroups }}>
+    <GroupsContext.Provider value={{ groups, setGroups, getGroups }}>
       {children}
     </GroupsContext.Provider>
   );
