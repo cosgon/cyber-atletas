@@ -1,5 +1,4 @@
 import useStyles from "./style";
-import React from "react";
 import {
   CircularProgress,
   CardActionArea,
@@ -18,16 +17,19 @@ const CardGroupPages = ({
   loading,
 }) => {
   const classes = useStyles();
+
   const handlePreviousPage = () => {
     if (previousPage) {
       setEndPoint(previousPage);
     }
   };
+
   const handleNextPage = () => {
     if (nextPage) {
       setEndPoint(nextPage);
     }
   };
+
   return loading ? (
     <div className={classes.container}>
       <CircularProgress color="#faed26" className={classes.loading} />
@@ -72,22 +74,30 @@ const CardGroupPages = ({
         );
       })}
       <div className={classes.changePageContainer}>
-        <Button
-          className={classes.changePage}
-          variant="contained"
-          color="primary"
-          onClick={handlePreviousPage}
-        >
-          Previous
-        </Button>
-        <Button
-          className={classes.changePage}
-          variant="contained"
-          color="primary"
-          onClick={handleNextPage}
-        >
-          Next
-        </Button>
+        {previousPage ? (
+          <Button
+            className={classes.changePage}
+            variant="contained"
+            color="primary"
+            onClick={handlePreviousPage}
+          >
+            Anterior
+          </Button>
+        ) : (
+          <div></div>
+        )}
+        {nextPage ? (
+          <Button
+            className={classes.changePage}
+            variant="contained"
+            color="primary"
+            onClick={handleNextPage}
+          >
+            Proximo
+          </Button>
+        ) : (
+          <div></div>
+        )}
       </div>
     </div>
   );
