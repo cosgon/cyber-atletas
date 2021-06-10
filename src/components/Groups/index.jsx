@@ -1,36 +1,36 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import "./style.css";
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  Typography,
+} from "@material-ui/core";
+import { useGroups } from "../../provider/groups";
+import useStyles from "./style";
 
 const Groups = () => {
-  const [groups, setGroups] = useState([]);
+  const { groups } = useGroups();
 
-  const api = axios.create({
-    baseURL: "https://kabit-api.herokuapp.com/",
-  });
-
-  const token = JSON.parse(localStorage.getItem("token")) || "";
-
-  useEffect(() => {
-    api
-      .get("/groups/subscriptions/", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((response) => setGroups(response.data));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const classes = useStyles();
 
   return (
-    <div className="flex">
+    <>
       {groups.map((group) => (
-        <div className="card" key={group.id}>
-          <h2 className="title">
-            #{group.id} - {group.name}
-          </h2>
-          <p className="text">{group.description}</p>
-        </div>
+        <Card className={classes.card}>
+          <CardActionArea className={classes.contentArea}>
+            <CardContent>
+              <Typography className={classes.title}>
+                #{group.id} - {group.name}
+              </Typography>
+            </CardContent>
+            <CardContent>
+              <Typography className={classes.description}>
+                {group.description}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+        </Card>
       ))}
-    </div>
+    </>
   );
 };
 
