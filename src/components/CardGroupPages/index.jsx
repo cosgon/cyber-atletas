@@ -1,21 +1,14 @@
-import CircularProgress from "@material-ui/core/CircularProgress";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import Card from "@material-ui/core/Card";
+import useStyles from "./style";
 import React from "react";
-import "./style.css";
-import Groups from "../Groups";
-const useStyles = makeStyles({
-  root: {
-    width: "80%",
-    display: "flex",
-    margin: "10px 0",
-  },
-});
+import {
+  CircularProgress,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  Typography,
+  Button,
+  Card,
+} from "@material-ui/core";
 
 const CardGroupPages = ({
   allGroups,
@@ -36,42 +29,63 @@ const CardGroupPages = ({
     }
   };
   return loading ? (
-    <div className={"container flex"}>
-      <CircularProgress color="#faed26" className="loading" />
+    <div className={classes.container}>
+      <CircularProgress color="#faed26" className={classes.loading} />
     </div>
   ) : (
-    <div className={"container flex"}>
-      <h1>Grupos:</h1>
+    <div className={classes.container}>
+      <h1 className={classes.h1}>Grupos:</h1>
       {allGroups.map((currentGroup, index) => {
         return (
           <Card className={classes.root} key={index}>
-            <CardActionArea className={"details"}>
+            <CardActionArea className={classes.details}>
               <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="h2"
+                  className={classes.text}
+                >
                   #{currentGroup.id} - {currentGroup.name}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="p"
+                  className={classes.text}
+                >
                   {currentGroup.description}
                 </Typography>
               </CardContent>
             </CardActionArea>
-            <CardActions className={"subscribe"}>
-              <Button variant="contained" color="primary" onClick={() => {}}>
+            <CardActions>
+              <Button
+                className={classes.subscribeButton}
+                variant="contained"
+                color="primary"
+                onClick={() => {}}
+              >
                 inscreva-se
               </Button>
             </CardActions>
           </Card>
         );
       })}
-      <div className={"flex btn_change_page"}>
+      <div className={classes.changePageContainer}>
         <Button
+          className={classes.changePage}
           variant="contained"
           color="primary"
           onClick={handlePreviousPage}
         >
           Previous
         </Button>
-        <Button variant="contained" color="primary" onClick={handleNextPage}>
+        <Button
+          className={classes.changePage}
+          variant="contained"
+          color="primary"
+          onClick={handleNextPage}
+        >
           Next
         </Button>
       </div>
