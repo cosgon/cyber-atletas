@@ -15,14 +15,14 @@ const useStyles = makeStyles({
       height: '553px',
       width: '290px',
       left: '204px',
-      borderRadius: '50px',
-      backgroundColor: '#5A5560'
+      borderRadius: '2.3rem',
+      backgroundColor: '#5a556070',
    },
    resumeBox: {
       height: '553px',
       width: '700px',
-      borderRadius: '50px',
-      backgroundColor: '#5A5560'
+      borderRadius: '2.3rem',
+      backgroundColor: '#5a556070',
    },
    userImage: {
       marginTop: '10px',
@@ -44,7 +44,7 @@ const useStyles = makeStyles({
       height: '3.5rem',
       fontWeight: '900',
       fontSize: '1.3rem',
-      borderRadius: '1.8rem',
+      borderRadius: '1.2rem',
       '&:hover': {
          transition: '0.6s',
          backgroundColor: '#463446',
