@@ -12,11 +12,11 @@ const CardDashboard = () => {
 
   return (
     <Card className={classes.card}>
-      <CardActionArea className={classes.teste2}>
+      <CardActionArea className={classes.container}>
         <CardContent>
           <Typography className={classes.habit}>TREINO DE DORSAL</Typography>
         </CardContent>
-        <CardContent className={classes.teste}>
+        <CardContent className={classes.descript}>
           <Typography>Esporte</Typography>
           <Typography>Difícil</Typography>
           <Typography>Semanal</Typography>
