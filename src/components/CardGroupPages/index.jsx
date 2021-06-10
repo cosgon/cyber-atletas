@@ -9,7 +9,9 @@ import {
   Card,
 } from "@material-ui/core";
 import axios from "axios";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useGroups } from "../../provider/groups";
 const CardGroupPages = ({
   allGroups,
   previousPage,
@@ -17,8 +19,9 @@ const CardGroupPages = ({
   setEndPoint,
   loading,
 }) => {
+  const api = axios.create({ baseURL: "https://kabit-api.herokuapp.com" });
   const classes = useStyles();
-
+  const { groups } = useGroups();
   const handlePreviousPage = () => {
     if (previousPage) {
       setEndPoint(previousPage);
@@ -30,20 +33,19 @@ const CardGroupPages = ({
       setEndPoint(nextPage);
     }
   };
+  const token =
+    JSON.parse(localStorage.getItem("token")) ||
+    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIzNzYxMTg1LCJqdGkiOiJkY2M0MjA3MGM4YmQ0MDY5YmM2YTkwNzFhZWEyYTk4MyIsInVzZXJfaWQiOjY1NH0.WY0jp43T0DvcRdu7X00dePa3at1ZlhTeEhjCvDQ4yTo";
 
   const handleSubscribe = (id) => {
-    axios
-      .post(`https://kabit-api.herokuapp.com/groups/58/subscribe/`, {
+    api
+      .post(`/groups/${id}/subscribe/`, null, {
         headers: {
-          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIzNzI5Nzg3LCJqdGkiOiI0YWQ4YWNkYzdlMTQ0MTZiYTk5MDYxZDY5YmVkMmQwYyIsInVzZXJfaWQiOjY1NH0.axOE1tuRRBG9Qotm0y_j2VcEeD7to2f1eTi8WAqO9Vk`,
+          Authorization: `Bearer ${token}`,
         },
       })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error + " Error");
-      });
+      .then(() => toast.success("Inscrito no grupo!"))
+      .catch((error) => toast.error(`${error}`));
   };
   return loading ? (
     <div className={classes.container}>
@@ -51,6 +53,7 @@ const CardGroupPages = ({
     </div>
   ) : (
     <div className={classes.container}>
+      <ToastContainer />
       <h1 className={classes.h1}>Grupos:</h1>
       {allGroups.map((currentGroup, index) => {
         return (
@@ -76,14 +79,27 @@ const CardGroupPages = ({
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <Button
-                className={classes.subscribeButton}
-                variant="contained"
-                color="primary"
-                onClick={() => handleSubscribe(currentGroup.id)}
-              >
-                inscreva-se
-              </Button>
+              {groups.filter(
+                (currentSubGroup) => currentSubGroup.id === currentGroup.id
+              ).length === 0 ? (
+                <Button
+                  className={classes.subscribeButton}
+                  variant="contained"
+                  color="primary"
+                  onClick={() => handleSubscribe(currentGroup.id)}
+                >
+                  inscreva-se
+                </Button>
+              ) : (
+                <Button
+                  className={classes.subscribeButton}
+                  variant="contained"
+                  color="primary"
+                  disabled
+                >
+                  inscrito
+                </Button>
+              )}
             </CardActions>
           </Card>
         );
