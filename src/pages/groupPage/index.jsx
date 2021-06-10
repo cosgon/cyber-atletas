@@ -2,7 +2,6 @@ import CardGroupPages from "../../components/CardGroupPages";
 import { useEffect, useState } from "react";
 import React from "react";
 import axios from "axios";
-import Groups from "../../components/Groups";
 
 const GroupPage = () => {
   const api = axios.create({ baseURL: "https://kabit-api.herokuapp.com" });
@@ -20,6 +19,7 @@ const GroupPage = () => {
       setAllGroups(response.data.results);
       setLoading(false);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [endPoint]);
 
   return (
@@ -27,10 +27,11 @@ const GroupPage = () => {
       <CardGroupPages
         previousPage={previousPage}
         setEndPoint={setEndPoint}
+        setLoading={setLoading}
         allGroups={allGroups}
         nextPage={nextPage}
         loading={loading}
-        setLoading={setLoading}
+        api={api}
       />
     </div>
   );
