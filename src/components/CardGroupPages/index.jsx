@@ -21,7 +21,7 @@ const CardGroupPages = ({
 }) => {
   const api = axios.create({ baseURL: "https://kabit-api.herokuapp.com" });
   const classes = useStyles();
-  const { groups } = useGroups();
+  const { groups, getGroups } = useGroups();
   const handlePreviousPage = () => {
     if (previousPage) {
       setEndPoint(previousPage);
@@ -44,7 +44,10 @@ const CardGroupPages = ({
           Authorization: `Bearer ${token}`,
         },
       })
-      .then(() => toast.success("Inscrito no grupo!"))
+      .then(() => {
+        toast.success("Inscrito no grupo!");
+        getGroups();
+      })
       .catch((error) => toast.error(`${error}`));
   };
   return loading ? (

@@ -22,6 +22,7 @@ export const GroupsProvider = ({ children }) => {
 
   useEffect(() => {
     getGroups();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
