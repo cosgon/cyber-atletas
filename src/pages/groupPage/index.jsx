@@ -2,6 +2,7 @@ import CardGroupPages from "../../components/CardGroupPages";
 import { useEffect, useState } from "react";
 import React from "react";
 import axios from "axios";
+import Groups from "../../components/Groups";
 
 const GroupPage = () => {
   const api = axios.create({ baseURL: "https://kabit-api.herokuapp.com" });

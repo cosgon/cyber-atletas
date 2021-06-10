@@ -19,12 +19,6 @@
   margin: 10px auto;
 }
 
-.flex {
-  display: flex;
-  align-items: center;
-  flex-flow: column wrap;
-}
-
 @media only screen and (min-width: 768px) {
   .card {
     width: 50%;
