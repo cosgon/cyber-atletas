@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TesteModal() {
+const HabitsModal = () => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
@@ -59,4 +59,5 @@ export default function TesteModal() {
       </Modal>
     </div>
   );
-}
+};
+export default HabitsModal;

@@ -3,12 +3,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { TextField, Button } from "@material-ui/core";
 import axios from "axios";
-import { useState } from "react";
+
 import jwt_decode from "jwt-decode";
 
 const FormHabit = () => {
-  const [habits, setHabits] = useState();
-
   const schema = yup.object().shape({
     title: yup.string().required("Campo Obrigatório"),
     category: yup.string().required("Campo Obrigatório"),

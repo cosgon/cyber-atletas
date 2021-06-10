@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { CircularProgress } from "@material-ui/core";
 
 const ShowHabits = () => {
   const [habits, setHabits] = useState();
@@ -8,17 +9,19 @@ const ShowHabits = () => {
   const token = JSON.parse(localStorage.getItem("token")) || "";
 
   useEffect(() => {
-    api
-      .get("habits/personal/", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((response) => setHabits(response.data));
-  }, []);
+    if (habits === undefined) {
+      api
+        .get("habits/personal/", {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((response) => setHabits(response.data));
+    }
+  }, [habits]);
   console.log(habits);
   return (
     <div>
       {habits === undefined ? (
-        <p>Carregando...</p>
+        <CircularProgress />
       ) : (
         habits.map((habit) => (
           <div key={habit.id}>
