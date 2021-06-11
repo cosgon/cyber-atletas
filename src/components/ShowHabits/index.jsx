@@ -1,38 +1,69 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { CircularProgress } from "@material-ui/core";
+import { useHabits } from "../../provider/Habits";
+import useStyles from "./Styles";
+import HabitsModal from "../HabitsModal/index";
+import { ToastContainer, toast } from "react-toastify";
+
+import {
+  CircularProgress,
+  CardActionArea,
+  Grid,
+  CardContent,
+  Typography,
+  Card,
+} from "@material-ui/core";
+import { useEffect } from "react";
 
 const ShowHabits = () => {
-  const [habits, setHabits] = useState();
-  const api = axios.create({ baseURL: "https://kabit-api.herokuapp.com/" });
+  const classes = useStyles();
 
-  const token = JSON.parse(localStorage.getItem("token")) || "";
+  const { habits, handleFormGet } = useHabits();
 
   useEffect(() => {
-    if (habits === undefined) {
-      api
-        .get("habits/personal/", {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-        .then((response) => setHabits(response.data));
-    }
-  }, [habits]);
-  console.log(habits);
+    handleFormGet();
+  }, []);
+
   return (
-    <div>
+    <Grid>
       {habits === undefined ? (
-        <CircularProgress />
+        <Grid className={classes.container}>
+          <CircularProgress className={classes.loading} />
+        </Grid>
       ) : (
-        habits.map((habit) => (
-          <div key={habit.id}>
-            <h2>{habit.title}</h2>
-            <p>{habit.category}</p>
-            <p>{habit.difficulty}</p>
-            <p>{habit.frequency}</p>
-          </div>
-        ))
+        <div className={classes.container}>
+          <Grid
+            direction="row"
+            justify="flex-end"
+            className={classes.habitsModal}
+          >
+            <HabitsModal />
+          </Grid>
+          <ToastContainer />
+          <h1 className={classes.h1}>Hábitos:</h1>
+
+          {habits.map((habit) => (
+            <Card className={classes.root} key={habit.id}>
+              <CardActionArea className={classes.details}>
+                <Typography className={classes.h5} variant="h5">
+                  {habit.title}
+                </Typography>
+
+                <CardContent className={classes.contentCard}>
+                  <Typography className={classes.text} variant="p">
+                    {habit.category}
+                  </Typography>
+                  <Typography className={classes.text} variant="p">
+                    {habit.difficulty}
+                  </Typography>
+                  <Typography className={classes.text} variant="p">
+                    {habit.frequency}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          ))}
+        </div>
       )}
-    </div>
+    </Grid>
   );
 };
 

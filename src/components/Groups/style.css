@@ -1,0 +1,33 @@
+.title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.card {
+  width: 290px;
+  background-color: #c4c4c4;
+  text-align: center;
+  padding: 20px 5px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.text {
+  overflow: hidden;
+  width: 80%;
+  margin: 10px auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .card {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .text {
+    width: 40%;
+  }
+}

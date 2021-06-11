@@ -2,9 +2,10 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { TextField, Button } from "@material-ui/core";
-import axios from "axios";
 
-import jwt_decode from "jwt-decode";
+import { useHabits } from "../../provider/Habits";
+
+import useStyles from "./Styles";
 
 const FormHabit = () => {
   const schema = yup.object().shape({
@@ -23,30 +24,13 @@ const FormHabit = () => {
     resolver: yupResolver(schema),
   });
 
-  const token = JSON.parse(localStorage.getItem("token")) || "";
+  const { handleFormPost, handleFormGet } = useHabits();
 
-  const decoded = jwt_decode(token);
-
-  const api = axios.create({
-    baseURL: "https://kabit-api.herokuapp.com/",
-  });
+  const classes = useStyles();
 
   const handleForm = (data) => {
-    api
-      .post(
-        "/habits/",
-        {
-          ...data,
-          achieved: false,
-          how_much_achieved: 30,
-          user: decoded.user_id,
-        },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
-      .then((resp) => console.log(resp.data))
-      .catch((error) => console.log("erro apresentado", error));
+    handleFormPost(data);
+    handleFormGet();
     reset();
   };
 
@@ -107,7 +91,12 @@ const FormHabit = () => {
         />
       </div>
       <div>
-        <Button type="submit" variant="contained" color="primary">
+        <Button
+          className={classes.subscribeButton}
+          type="submit"
+          variant="contained"
+          color="primary"
+        >
           Salvar
         </Button>
       </div>

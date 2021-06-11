@@ -1,26 +1,13 @@
-import { makeStyles } from "@material-ui/core/styles";
 import { Modal, Fab } from "@material-ui/core/";
 import AddIcon from "@material-ui/icons/Add";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 
+import useStyles from "./Styles";
+
 import { useState } from "react";
 
 import FormHabit from "../FormHabit";
-
-const useStyles = makeStyles((theme) => ({
-  modal: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: "2px solid #000",
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-  },
-}));
 
 const HabitsModal = () => {
   const classes = useStyles();
@@ -36,7 +23,13 @@ const HabitsModal = () => {
 
   return (
     <div>
-      <Fab type="button" color="primary" aria-label="Add" onClick={handleOpen}>
+      <Fab
+        className={classes.add}
+        type="button"
+        color="primary"
+        aria-label="Add"
+        onClick={handleOpen}
+      >
         <AddIcon />
       </Fab>
       <Modal
