@@ -8,12 +8,12 @@ const useStyles = makeStyles({
         borderRadius: "2rem",
         textAlign: "center",
     },
-    teste: {
+    descript: {
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-evenly",
         color: "#FAED26",
-        padding: "1rem",
+        padding: "0rem",
         fontSize: "1rem",
     },
     habit: {
@@ -22,7 +22,7 @@ const useStyles = makeStyles({
         fontSize: "2rem",
         letterSpacing: "0.35rem",
     },
-    teste2: {
+    container: {
         height: "100%",
     },
     times: {
