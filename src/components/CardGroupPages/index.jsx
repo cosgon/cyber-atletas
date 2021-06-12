@@ -35,7 +35,7 @@ const CardGroupPages = ({
   };
   const token =
     JSON.parse(localStorage.getItem("token")) ||
-    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIzNzg2NDU0LCJqdGkiOiIxZDYzODA3YmMzZTc0NDg5ODNiMjYxYTUyMTZlNTE1MiIsInVzZXJfaWQiOjcxOX0.Crb-Sa8HiJDfhLBOT892hlI-Uerb2Qy4jLeTL6tNbQo";
+    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIzNzYxMTg1LCJqdGkiOiJkY2M0MjA3MGM4YmQ0MDY5YmM2YTkwNzFhZWEyYTk4MyIsInVzZXJfaWQiOjY1NH0.WY0jp43T0DvcRdu7X00dePa3at1ZlhTeEhjCvDQ4yTo";
 
   const handleSubscribe = (id) => {
     api
