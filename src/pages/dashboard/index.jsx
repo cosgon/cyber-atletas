@@ -1,7 +1,12 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Button, Avatar, Typography } from '@material-ui/core';
+<<<<<<< HEAD
+import CardDashboard from '../../components/CardDashboard';
+import { useState } from 'react';
+=======
 
 import CardDashboard from '../../components/CardDashboard';
+>>>>>>> 871822cae786ff8cac247f47ef58c596b8de8d3d
 
 const useStyles = makeStyles({
    root: {
@@ -56,6 +61,16 @@ const useStyles = makeStyles({
 const Dashboard = () => {
    const classes = useStyles();
 
+<<<<<<< HEAD
+   const [display, setDisplay] = useState('habits');
+
+   const handleClick = (value) => {
+      setDisplay(value);
+      console.log(display);
+   }
+
+=======
+>>>>>>> 871822cae786ff8cac247f47ef58c596b8de8d3d
    return (
       <Grid
          container
@@ -71,6 +86,34 @@ const Dashboard = () => {
             >
                Nome do usuário
             </Typography>
+<<<<<<< HEAD
+            <Button
+               variant="contained"
+               className={classes.button}
+               onClick={() => handleClick('habits')}
+            >
+               Hábitos
+            </Button>
+            <Button
+               variant="contained"
+               className={classes.button}
+               onClick={() => handleClick('groups')}
+            >
+               Grupos
+            </Button>
+            <Button
+               variant="contained"
+               className={classes.button}
+               onClick={() => handleClick('ativits')}
+            >
+               Atividades
+            </Button>
+            <Button
+               variant="contained"
+               className={classes.button}
+               onClick={() => handleClick('goals')}
+            >
+=======
             <Button variant="contained" className={classes.button}>
                Hábitos
             </Button>
@@ -81,11 +124,19 @@ const Dashboard = () => {
                Atividades
             </Button>
             <Button variant="contained" className={classes.button}>
+>>>>>>> 871822cae786ff8cac247f47ef58c596b8de8d3d
                Objetivos
             </Button>
          </Grid>
          <Grid container alignItems='center' justify='space-evenly' className={classes.resumeBox}>
+<<<<<<< HEAD
+            {display === 'habits' && <h2>Hábitos</h2>}
+            {display === 'groups' && <h2>Grupos</h2>}
+            {display === 'ativits' && <h2>Atividades</h2>}
+            {display === 'goals' && <h2>Metas</h2>}
+=======
             <CardDashboard/>
+>>>>>>> 871822cae786ff8cac247f47ef58c596b8de8d3d
          </Grid>
       </Grid>
    )

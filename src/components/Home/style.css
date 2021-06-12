@@ -1,0 +1,9 @@
+.divHome{
+    min-height: 100vh;
+    background-image: url('../../Imagens/logo_cyberAtletas.png'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-origin: border-box; 
+    background-size: 70%;
+    background-color:#46344e ;
+}
