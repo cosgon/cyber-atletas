@@ -2,15 +2,17 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   root: {
-    width: "80%",
-    display: "flex",
-    margin: "10px 0",
+    // width: "80%",
+    // display: "flex",
+    // margin: "10px 0",
+
+    background: "#c4c4c4",
+    width: "34rem",
+    borderRadius: "2rem",
+    textAlign: "center",
+    marginTop: "20px",
   },
-  details: {
-    width: "80%",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-  },
+
   contentCard: {
     display: "flex",
     justifyContent: "space-around",
@@ -24,6 +26,7 @@ const useStyles = makeStyles({
     fontWeight: "700",
     color: "#f5f5f5",
     marginBottom: "20px",
+    textAlign: "center",
   },
   container: {
     backgroundColor: "#5a556070",
@@ -48,6 +51,7 @@ const useStyles = makeStyles({
     justifyContent: "flex-end",
     marginBottom: "2rem",
     marginRight: "2rem",
+    marginTop: "2rem",
   },
   subModal: {
     backgroundColor: "#463446",
