@@ -19,8 +19,21 @@ const useStyles = makeStyles({
    resumeBox: {
       height: "553px",
       width: "700px",
-      borderRadius: "2.3rem",
+      borderRadius: "1.7rem",
       backgroundColor: "#5a556070",
+      overflow: 'auto',
+      "&::-webkit-scrollbar": {
+         borderRadius: '10px',
+         backgroundColor: '#463446',
+         backgroundImage:
+         "linear-gradient(150deg, #9B786F 0%, rgba(90, 85, 96, 0) 20%)",
+         height: '4rem'
+      },
+      "&::-webkit-scrollbar-thumb": {
+         background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+         borderRadius: '10px',
+      },
+      scrollbarFaceColor: 'black'
    },
    userImage: {
       marginTop: "10px",
@@ -36,17 +49,18 @@ const useStyles = makeStyles({
       color: "#FAED26",
    },
    button: {
-      color: "#FAED26",
-      backgroundColor: "#463446",
+      color: "#FFF",
+      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
       width: "14rem",
       height: "3.5rem",
       fontWeight: "900",
       fontSize: "1.3rem",
-      borderRadius: "1.2rem",
+      borderRadius: 9,
+      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
       "&:hover": {
          transition: "0.6s",
          backgroundColor: "#463446",
-         boxShadow: "1px 1px 11px 4px #FAED26",
+         boxShadow: "1px 1px 5px 4px #FFFFFF40",
       },
    },
 });
