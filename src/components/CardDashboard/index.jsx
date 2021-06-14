@@ -28,7 +28,7 @@ const CardDashboard = () => {
         </CardContent>
       </CardActionArea>
     </Card>
-  );
+  )
 };
 
 export default CardDashboard;

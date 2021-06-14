@@ -5,14 +5,14 @@ const useStyles = makeStyles({
       backgroundColor: "#46344E",
       backgroundImage:
          "linear-gradient(180deg, #9B786F 0%, rgba(90, 85, 96, 0) 75.05%)",
-      flexGrow: "1",
-      minHeight: "100vh",
-      width: "100%",
+      height: "100vh",
+      display: 'flex',
+      justifyContent: 'space-around',
+      alignItems: 'center',
    },
    userBox: {
       height: "553px",
       width: "290px",
-      left: "204px",
       borderRadius: "2.3rem",
       backgroundColor: "#5a556070",
    },

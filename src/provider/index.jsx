@@ -5,7 +5,9 @@ const Providers = ({ children }) => {
   return (
     <RegisterProvider>
       <GroupsProvider>
-        <HabitsProvider>{children}</HabitsProvider>;
+        <HabitsProvider>
+          {children}
+        </HabitsProvider>
       </GroupsProvider>
     </RegisterProvider>
   );
