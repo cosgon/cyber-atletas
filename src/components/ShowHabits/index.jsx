@@ -11,16 +11,11 @@ import {
   Typography,
   Card,
 } from "@material-ui/core";
-import { useEffect } from "react";
 
 const ShowHabits = () => {
   const classes = useStyles();
 
-  const { habits, handleFormGet } = useHabits();
-
-  useEffect(() => {
-    handleFormGet();
-  }, []);
+  const { habits } = useHabits();
 
   return (
     <Grid>
