@@ -4,9 +4,13 @@ import * as yup from "yup";
 import {useRegister} from '../../provider/Register';
 import { useHistory } from "react-router";
 import { Button, TextField } from "@material-ui/core";
+import useStyles from './style.js'; 
+import SaveIcon from '@material-ui/icons/Save';
+import {Link} from 'react-router-dom'; 
 
 const Register = () => {
 
+    const classes = useStyles();
     const {registerUser} = useRegister();
     const history = useHistory(); 
 
@@ -34,32 +38,32 @@ const Register = () => {
         await registerUser(data); 
         reset(); 
         history.push("/PageLogin");
-      };
+    };
 
     return(
         <>
-        <form onSubmit={handleSubmit(handleMyForm)}>
+        <form className={classes.root} onSubmit={handleSubmit(handleMyForm)}>
+            <img className={classes.img} src="https://www.imagemhost.com.br/images/2021/06/13/Paleta-de-cores.png" />
             <div>
-                <TextField
+                <TextField 
+                className={classes.textField}
                     required
+                    label="Username"
                     margin="normal"
                     variant="outlined"
-                    label="Username"
                     size="small"
-                    color="primary"
-                    placeholder="Username" 
+                    color="secondary"   
                     {...register("username")}/>
                 <p>{errors.username?.message}</p>
             </div>
             <div>
-                <TextField
+                <TextField 
                     required
+                    label="Email"
                     margin="normal"
                     variant="outlined"
-                    label="Email"
                     size="small"
-                    color="primary"
-                    placeholder="Email" 
+                    color="secondary"
                     {...register("email")}/>
                 <p>{errors.email?.message}</p>
             </div>
@@ -71,18 +75,21 @@ const Register = () => {
                         variant="outlined"
                         label="Senha"
                         size="small"
-                        color="primary"
-                        type="password" 
-                        className="inputSenha" 
-                        placeholder="Senha" 
+                        color = "secondary"
                         {...register("password")}/>
                     <p>{errors.password?.message}</p>
                 </div>
             </div>
             <div >
-                <Button type="submit"  variant="contained" color="primary">  CADASTRAR </Button>
+                <Button type="submit"  
+                        variant="contained"
+                        size="large"
+                        className={classes.button}
+                        startIcon={<SaveIcon/>}>  CADASTRAR </Button>
             </div>
+            <Link className={classes.link} to="/">Voltar para Home</Link>
         </form>
+       
        </>
     ); 
 }
