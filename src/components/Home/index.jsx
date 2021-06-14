@@ -7,9 +7,11 @@ const Home = () => {
     return(
 
        <div  className={classes.root}>
-            <img />
-            <button><Link to="/pageRegister"> cadastre-se aqui</Link></button>
-            <h4>Já possui cadastro?</h4> <Link to="/pageLogin">Clique aqui</Link>
+            <img className={classes.img} src="https://www.imagemhost.com.br/images/2021/06/11/logo_cyberAtletas.png" height="100" width="200"/>
+            <div className={classes.menu}>
+                <h2 className={classes.h2}><Link className={classes.link} to="/pageRegister"> cadastre-se aqui</Link></h2>
+                <h4 className={classes.h4}> Já possui cadastro? <Link className={classes.link} to="/pageLogin">Clique aqui</Link> </h4>
+            </div> 
        </div> 
     ); 
 }
