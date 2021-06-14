@@ -1,8 +1,8 @@
-import  Login from '../../components/Login'; 
+import Login from '../../components/Login';
 
 const PageLogin = () => {
     return (
-        <Login/>
-    ); 
-}; 
-export default PageLogin; 
+        <Login />
+    )
+};
+export default PageLogin;
