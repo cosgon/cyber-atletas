@@ -2,6 +2,7 @@ import { Grid, Button, Avatar, Typography } from "@material-ui/core";
 import { useState } from "react";
 import useStyles from "./style";
 
+
 const Dashboard = () => {
   const classes = useStyles();
 
@@ -13,23 +14,20 @@ const Dashboard = () => {
   };
 
   return (
-    <Grid>
-      <Grid
-        container
-        alignItems="center"
-        justify="space-evenly"
-        direction="column"
-        className={classes.userBox}
-      >
+    <Grid className={classes.root}>
         <Grid
-          container
-          alignItems="center"
-          justify="space-evenly"
-          direction="column"
-          className={classes.userBox}
+            container
+            alignItems="center"
+            justify="space-evenly"
+            direction="column"
+            className={classes.userBox}
         >
-          <Avatar className={classes.userImage} />
-          <Typography variant="h3" className={classes.userName}>
+          <Avatar
+            className={classes.userImage}
+         />
+          <Typography variant="h3" 
+            className={classes.userName}
+         >
             Nome do usuário
           </Typography>
           <Button
@@ -72,9 +70,8 @@ const Dashboard = () => {
           {display === "ativits" && <h2>Atividades</h2>}
           {display === "goals" && <h2>Metas</h2>}
         </Grid>
-      </Grid>
     </Grid>
-  );
-};
+  )
+}
 
 export default Dashboard;
