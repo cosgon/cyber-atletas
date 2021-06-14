@@ -43,12 +43,11 @@ const Register = () => {
     return (
         <>
             <form className={classes.root} onSubmit={handleSubmit(handleMyForm)}>
-                <img className={classes.img} src="https://www.imagemhost.com.br/images/2021/06/13/Paleta-de-cores.png" alt="Register logo" />
+                <img className={classes.img} src="https://www.imagemhost.com.br/images/2021/06/13/Paleta-de-cores.png" />
                 <div>
                     <TextField
                         className={classes.textField}
-                        required
-                        label="Username"
+                        label="Usuario"
                         margin="normal"
                         variant="outlined"
                         size="small"
@@ -58,7 +57,6 @@ const Register = () => {
                 </div>
                 <div>
                     <TextField
-                        required
                         label="Email"
                         margin="normal"
                         variant="outlined"
@@ -70,16 +68,16 @@ const Register = () => {
                 <div>
                     <div>
                         <TextField
-                            required
+                            className={classes.textField}
+                            label="Senha"
                             margin="normal"
                             variant="outlined"
-                            label="Senha"
                             size="small"
                             color="secondary"
                             {...register("password")} />
                         <p>{errors.password?.message}</p>
                     </div>
-                </div>
+                </div >
                 <div >
                     <Button type="submit"
                         variant="contained"
@@ -87,8 +85,8 @@ const Register = () => {
                         className={classes.button}
                         startIcon={<SaveIcon />}>  CADASTRAR </Button>
                 </div>
-                <Link className={classes.link} to="/">Voltar para Home</Link>
-            </form>
+                <Link className={classes.link} to="/">Home</Link>
+            </form >
 
         </>
     );
