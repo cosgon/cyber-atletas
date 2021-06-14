@@ -34,7 +34,7 @@ const useStyles = makeStyles({
       fontWeight: 700,
       lineHeight: '42px',
       letterSpacing: '0em',
-      color: '#FAED26',
+      color: '#FAED26'
    },
    button: {
       color: '#FAED26',
