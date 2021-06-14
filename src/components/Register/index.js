@@ -43,7 +43,7 @@ const Register = () => {
     return (
         <>
             <form className={classes.root} onSubmit={handleSubmit(handleMyForm)}>
-                <img className={classes.img} src="https://www.imagemhost.com.br/images/2021/06/13/Paleta-de-cores.png" />
+                <img className={classes.img} src="https://www.imagemhost.com.br/images/2021/06/13/Paleta-de-cores.png" alt="Register logo" />
                 <div>
                     <TextField
                         className={classes.textField}

@@ -27,7 +27,6 @@ export const HabitsProvider = ({ children }) => {
   }, []);
 
   const handleFormPost = (data) => {
-    console.log("api", data);
     api
       .post(
         "/habits/",
