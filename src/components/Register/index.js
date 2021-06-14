@@ -87,7 +87,7 @@ const Register = () => {
                         className={classes.button}
                         startIcon={<SaveIcon/>}>  CADASTRAR </Button>
             </div>
-            <Link className={classes.link} to="/">Voltar para Home</Link>
+            <Link className={classes.link} to="/">Home</Link>
         </form>
        
        </>
