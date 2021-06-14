@@ -24,7 +24,7 @@ const ShowHabits = () => {
           <CircularProgress className={classes.loading} />
         </Grid>
       ) : (
-        <div className={classes.container}>
+        <div>
           <Grid
             direction="row"
             justify="flex-end"
@@ -37,7 +37,7 @@ const ShowHabits = () => {
 
           {habits.map((habit) => (
             <Card className={classes.root} key={habit.id}>
-              <CardActionArea className={classes.details}>
+              <CardActionArea>
                 <Typography className={classes.h5} variant="h5">
                   {habit.title}
                 </Typography>
