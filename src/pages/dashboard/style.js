@@ -13,13 +13,13 @@ const useStyles = makeStyles({
       width: '290px',
       left: '204px',
       borderRadius: '50px',
-      backgroundColor: '#5A5560'
+      backgroundColor: '#5A5560',
    },
    resumeBox: {
       height: '553px',
       width: '700px',
       borderRadius: '50px',
-      backgroundColor: '#5A5560'
+      backgroundColor: '#5A5560',
    },
    userImage: {
       marginTop: '10px',

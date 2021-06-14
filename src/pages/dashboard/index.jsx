@@ -1,6 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Button, Avatar, Typography } from '@material-ui/core';
-import CardDashboard from '../../components/CardDashboard';
 import { useState } from 'react';
 
 const useStyles = makeStyles({
