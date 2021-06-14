@@ -1,7 +1,7 @@
 import { useHabits } from "../../provider/Habits";
 import useStyles from "./Styles";
 import HabitsModal from "../HabitsModal/index";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 import {
   CircularProgress,
