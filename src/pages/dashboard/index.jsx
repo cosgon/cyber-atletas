@@ -1,6 +1,9 @@
 import { Grid, Button, Avatar, Typography } from "@material-ui/core";
 import { useState } from "react";
 import useStyles from "./style";
+import Groups from '../../components/Groups';
+import ShowHabits from "../../components/ShowHabits";
+
 
 
 const Dashboard = () => {
@@ -49,14 +52,7 @@ const Dashboard = () => {
             className={classes.button}
             onClick={() => handleClick("ativits")}
           >
-            Atividades
-          </Button>
-          <Button
-            variant="contained"
-            className={classes.button}
-            onClick={() => handleClick("goals")}
-          >
-            Objetivos
+            DEVS
           </Button>
         </Grid>
         <Grid
@@ -65,10 +61,8 @@ const Dashboard = () => {
           justify="space-evenly"
           className={classes.resumeBox}
         >
-          {display === "habits" && <h2>Hábitos</h2>}
-          {display === "groups" && <h2>Grupos</h2>}
-          {display === "ativits" && <h2>Atividades</h2>}
-          {display === "goals" && <h2>Metas</h2>}
+          {display === "habits" && <ShowHabits/>}
+          {display === "groups" && <Groups/>}
         </Grid>
     </Grid>
   )
