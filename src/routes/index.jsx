@@ -1,9 +1,10 @@
 import PageRegister from "../pages/pageRegister";
 import { Route, Switch } from "react-router";
 import Dashboard from "../pages/dashboard";
-import GroupPage from "../pages/groupPage";
+import AllGroupsPages from "../pages/allGroupsPages";
 import PageLogin from "../pages/pageLogin";
 import PageHome from "../pages/pageHome";
+import GroupPage from "../pages/groupPage";
 
 const Routes = () => {
   return (
@@ -20,14 +21,11 @@ const Routes = () => {
       <Route exact path="/dashboard">
         <Dashboard />
       </Route>
-      <Route exact path="/Groups">
-        <GroupPage />
-      </Route>
-      <Route exact path="/Groups">
-        <GroupPage />
-      </Route>
       <Route exact path="/Group">
         <GroupPage />
+      </Route>
+      <Route exact path="/AllGroupsPage">
+        <AllGroupsPages />
       </Route>
     </Switch>
   );
