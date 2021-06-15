@@ -3,7 +3,6 @@ import { useState } from "react";
 import useStyles from "./style";
 import Groups from "../../components/Groups";
 import ShowHabits from "../../components/ShowHabits";
-import { useEffect } from "react";
 import { useHabits } from "../../provider/Habits";
 import { useGroups } from "../../provider/groups";
 
@@ -11,15 +10,12 @@ const Dashboard = () => {
   const classes = useStyles();
 
   const [display, setDisplay] = useState("habits");
-  const { handleFormGet, habits } = useHabits();
-  const { getGroups, groups } = useGroups();
-  useEffect(() => {
-    handleFormGet();
-    getGroups();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [habits, groups]);
+  const { handleFormGet } = useHabits();
+  const { getGroups } = useGroups();
 
   const handleClick = (value) => {
+    handleFormGet();
+    getGroups();
     setDisplay(value);
     console.log(display);
   };

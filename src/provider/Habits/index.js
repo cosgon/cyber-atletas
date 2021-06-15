@@ -24,7 +24,6 @@ export const HabitsProvider = ({ children }) => {
       setDecoded(jwt_decode(token));
       console.log(decoded);
     }
-    handleFormGet();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
