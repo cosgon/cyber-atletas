@@ -40,7 +40,6 @@ export const HabitsProvider = ({ children }) => {
   };
 
   const handleFormGet = () => {
-    console.log(token);
     setLoading(true);
     api
       .get("habits/personal/", {
