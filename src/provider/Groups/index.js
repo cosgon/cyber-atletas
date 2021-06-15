@@ -21,7 +21,7 @@ export const GroupsProvider = ({ children }) => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(({ data }) => setGroups(data))
-      .catch(() => toast.error("Erro ao buscar grupos!"))
+      .catch(() => toast.error("Erro ao buscar grupos!"));
   };
 
   return (

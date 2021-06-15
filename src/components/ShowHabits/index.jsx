@@ -11,7 +11,8 @@ import {
   Typography,
   Card,
 } from "@material-ui/core";
-import ShowActivities from "../ShowActivities";
+
+import FormActiveties from "../FormActivities";
 
 const ShowHabits = () => {
   const classes = useStyles();

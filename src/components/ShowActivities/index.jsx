@@ -9,6 +9,8 @@ import {
   CircularProgress,
 } from "@material-ui/core";
 
+import { toast, ToastContainer } from "react-toastify";
+
 const ShowActivities = () => {
   const [showActivities, setShowActivities] = useState();
 
@@ -21,6 +23,7 @@ const ShowActivities = () => {
   const getActivities = () => {
     api.get("groups/13/").then((response) => {
       setShowActivities(response.data.activities);
+      toast.success("Atividade Cadastrada");
     });
   };
 
@@ -34,6 +37,7 @@ const ShowActivities = () => {
     </div>
   ) : (
     <div>
+      <ToastContainer />
       {showActivities.map((activities) => (
         <Card className={classes.card}>
           <CardContent>
