@@ -19,9 +19,7 @@ const Groups = () => {
     baseURL: "https://kabit-api.herokuapp.com/",
   });
 
-  const token = JSON.parse(localStorage.getItem("token")) || "";
-
-  const { groups, getGroups } = useGroups();
+  const { groups, setSelected } = useGroups();
 
   const [loading, setLoading] = useState(false);
 
@@ -29,17 +27,22 @@ const Groups = () => {
 
   const classes = useStyles();
 
-  const subGroup = (id) => {
-    setLoading(true);
-    api
-      .delete(`/groups/${id}/unsubscribe/`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then(() => {
-        getGroups();
-        setLoading(false);
-      })
-      .catch((e) => console.log("Exclude " + e));
+  // const subGroup = (id) => {
+  //   setLoading(true);
+  //   api
+  //     .delete(`/groups/${id}/unsubscribe/`, {
+  //       headers: { Authorization: `Bearer ${token}` },
+  //     })
+  //     .then(() => {
+  //       getGroups();
+  //       setLoading(false);
+  //     })
+  //     .catch((e) => console.log("Exclude " + e));
+  // };
+
+  const toPage = (id) => {
+    setSelected(id);
+    history.push("/groupinfo");
   };
 
   return loading ? (
@@ -66,7 +69,7 @@ const Groups = () => {
               {group.description}
             </Typography>
           </CardContent>
-          <Button onClick={() => subGroup(group.id)}>Sair do Grupo</Button>
+          <Button onClick={() => toPage(group.id)}>Sair do Grupo</Button>
         </Card>
       ))}
       <Card className={classes.card} onClick={() => history.push("/groups")}>
