@@ -1,7 +1,13 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { TextField, Button } from "@material-ui/core";
+import {
+  TextField,
+  Button,
+  Select,
+  FormControl,
+  InputLabel,
+} from "@material-ui/core";
 
 import { useHabits } from "../../provider/Habits";
 
@@ -64,19 +70,29 @@ const FormHabit = () => {
       </div>
 
       <div>
-        <TextField
-          required
-          margin="normal"
-          variant="outlined"
-          label="Dificuldade do Hábito"
-          size="small"
-          color="primary"
-          {...register("difficulty")}
-          error={!!errors.difficulty}
-          helperText={errors.difficulty?.message}
-        />
-      </div>
-      <div>
+        <div>
+          <FormControl className={classes.select}>
+            <InputLabel id="demo-controlled-open-select-label">
+              Dificuldade do Hábito
+            </InputLabel>
+            <Select
+              label="Dificuldade "
+              className={classes.select}
+              {...register("difficulty")}
+            >
+              <option className={classes.option} aria-label="None" value="" />
+              <option className={classes.option} value={"Fácil"}>
+                Fácil
+              </option>
+              <option className={classes.option} value={"Médio"}>
+                Médio
+              </option>
+              <option className={classes.option} value={"Difícil"}>
+                Difícil
+              </option>
+            </Select>
+          </FormControl>
+        </div>
         <TextField
           required
           margin="normal"

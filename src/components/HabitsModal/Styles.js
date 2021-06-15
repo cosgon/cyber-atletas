@@ -7,9 +7,11 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   add: {
-    background: "#463446",
+    background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
     "&:hover": {
-      background: "#9b786f",
+      transition: "0.6s",
+      backgroundColor: "#463446",
+      boxShadow: "1px 1px 5px 4px #FFFFFF40",
     },
   },
 
