@@ -9,8 +9,8 @@ const HabitsContext = createContext();
 
 export const HabitsProvider = ({ children }) => {
   const [habits, setHabits] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [decoded, setDecoded] = useState({});
-  const [loadin, setLoading] = useState(false);
   const { reset } = useForm();
 
   const api = axios.create({
@@ -22,13 +22,11 @@ export const HabitsProvider = ({ children }) => {
   useEffect(() => {
     if (token) {
       setDecoded(jwt_decode(token));
-      console.log(decoded);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleFormPost = (data) => {
-    setLoading(true);
     api
       .post(
         "/habits/",
@@ -42,32 +40,37 @@ export const HabitsProvider = ({ children }) => {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
-      .then((response) => {
+      .then(() => {
         handleFormGet();
         toast.success("Hábito Cadastrado");
-        setLoading(false);
       })
-      .catch((error) => {
-        console.log("erro apresentado", error);
-        setLoading(false);
-      });
+      .catch((error) => console.log("erro apresentado", error));
     reset();
   };
 
   const handleFormGet = () => {
+    setLoading(true);
     api
       .get("habits/personal/", {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then((response) => setHabits(response.data))
+      .then((response) => {
+        setHabits(response.data);
+        setLoading(false);
+      })
 
-      .catch((error) => console.log("erro apresentado", error));
-
-    // console.log(habits);
+      .catch((error) => {
+        console.log("erro apresentado", error);
+        setLoading(false);
+      });
   };
 
+  console.log(loading);
+
   return (
-    <HabitsContext.Provider value={{ habits, handleFormPost, handleFormGet }}>
+    <HabitsContext.Provider
+      value={{ loading, habits, handleFormPost, handleFormGet }}
+    >
       {children}
     </HabitsContext.Provider>
   );

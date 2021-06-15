@@ -2,6 +2,7 @@ import { Modal, Fab } from "@material-ui/core/";
 import AddIcon from "@material-ui/icons/Add";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
+import { Grid } from "@material-ui/core";
 
 import useStyles from "./Styles";
 
@@ -22,7 +23,7 @@ const HabitsModal = () => {
   };
 
   return (
-    <div>
+    <Grid>
       <Fab
         className={classes.add}
         type="button"
@@ -45,12 +46,12 @@ const HabitsModal = () => {
         }}
       >
         <Fade in={open}>
-          <div className={classes.paper}>
+          <Grid className={classes.paper}>
             <FormHabit />
-          </div>
+          </Grid>
         </Fade>
       </Modal>
-    </div>
+    </Grid>
   );
 };
 export default HabitsModal;
