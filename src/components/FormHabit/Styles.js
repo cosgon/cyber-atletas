@@ -13,6 +13,21 @@ const useStyles = makeStyles({
       boxShadow: "1px 1px 5px 4px #FFFFFF40",
     },
   },
+
+  select: {
+    width: "100%",
+  },
+
+  option: {
+    textAlign: "center",
+    marginBottom: "5px",
+    cursor: "pointer",
+    padding: "5px",
+    "&:hover": {
+      background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+      transition: "0.6s",
+    },
+  },
 });
 
 export default useStyles;
