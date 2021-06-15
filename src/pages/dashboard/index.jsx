@@ -5,6 +5,7 @@ import Groups from "../../components/Groups";
 import ShowHabits from "../../components/ShowHabits";
 import { useHabits } from "../../provider/Habits";
 import { useGroups } from "../../provider/groups";
+import { useEffect } from "react";
 
 const Dashboard = () => {
   const classes = useStyles();
@@ -13,6 +14,11 @@ const Dashboard = () => {
   const { handleFormGet } = useHabits();
   const { getGroups } = useGroups();
 
+  useEffect(() => {
+    handleFormGet();
+    getGroups();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const handleClick = (value) => {
     handleFormGet();
     getGroups();
