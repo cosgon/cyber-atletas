@@ -72,7 +72,10 @@ const Groups = () => {
           <Button onClick={() => toPage(group.id)}>Sair do Grupo</Button>
         </Card>
       ))}
-      <Card className={classes.card} onClick={() => history.push("/groups")}>
+      <Card
+        className={classes.card}
+        onClick={() => history.push("/AllGroupsPage")}
+      >
         <CardActionArea className={classes.contentArea}>
           <CardContent>
             <Typography>Adicionar um grupo</Typography>
