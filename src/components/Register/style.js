@@ -37,6 +37,15 @@ const useStyles = makeStyles((theme) => ({
       color: "#d9d9d9",
    },
 
+   box: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      maxWidth: '415px',
+      color: 'red',
+   },
+
 }));
 
 export default useStyles;
