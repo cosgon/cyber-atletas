@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useHistory } from "react-router-dom";
 import * as yup from "yup";
 import { useLogin } from '../../provider/Login';
 import { Button, TextField } from "@material-ui/core";
@@ -9,11 +8,11 @@ import { Link } from 'react-router-dom';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import { useHabits } from "../../provider/Habits";
 import { useGroups } from "../../provider/groups";
+import { ToastContainer } from "react-toastify";
 
 const Login = () => {
 
     const classes = useStyles();
-    const history = useHistory();
     const { loginUser } = useLogin();
 
     const schema = yup.object().shape({
@@ -38,12 +37,23 @@ const Login = () => {
         getGroups();
         loginUser(data);
         reset();
-        history.push("/dashboard");
     };
 
     return (
         <>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <form className={classes.root} onSubmit={handleSubmit(handleMyForm)}>
+
                 <img className={classes.img} src="https://www.imagemhost.com.br/images/2021/06/14/Paleta-de-cores-1.png" alt="logomarca" border="0" />
                 <div>
                     <TextField

@@ -3,8 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
    root: {
       backgroundColor: "#46344E",
-      backgroundImage:
-         "linear-gradient(180deg, #9B786F 0%, rgba(90, 85, 96, 0) 75.05%)",
+      backgroundImage: "url(https://www.imagemhost.com.br/images/2021/06/15/Paleta-de-cores-2.png)",
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
       height: "100vh",
       display: 'flex',
       justifyContent: 'space-around',
@@ -26,7 +27,7 @@ const useStyles = makeStyles({
          borderRadius: '10px',
          backgroundColor: '#463446',
          backgroundImage:
-         "linear-gradient(150deg, #9B786F 0%, rgba(90, 85, 96, 0) 20%)",
+            "linear-gradient(150deg, #9B786F 0%, rgba(90, 85, 96, 0) 20%)",
          height: '4rem'
       },
       "&::-webkit-scrollbar-thumb": {
