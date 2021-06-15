@@ -1,6 +1,7 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import axios from "axios";
+import { createContext, useContext, useState } from "react";
+import { toast } from "react-toastify";
 import { useLogin } from "../Login";
+import axios from "axios";
 
 const GroupsContext = createContext();
 
@@ -19,9 +20,8 @@ export const GroupsProvider = ({ children }) => {
       .get("/groups/subscriptions/", {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then((response) => {
-        setGroups(response.data);
-      });
+      .then(({ data }) => setGroups(data))
+      .catch(() => toast.error("Erro ao buscar grupos!"))
   };
 
   return (
