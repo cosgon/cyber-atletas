@@ -3,33 +3,79 @@ import {
   CardActionArea,
   CardContent,
   Typography,
+  Button,
+  CircularProgress,
+  Grid,
 } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 import { useGroups } from "../../provider/groups";
 import useStyles from "./style";
+import axios from "axios";
+import { useState } from "react";
+import GroupsModal from "../GroupsModal";
 
 const Groups = () => {
-  const { groups } = useGroups();
+  const api = axios.create({
+    baseURL: "https://kabit-api.herokuapp.com/",
+  });
+
+  const token = JSON.parse(localStorage.getItem("token")) || "";
+
+  const { groups, getGroups } = useGroups();
+
+  const [loading, setLoading] = useState(false);
+
+  const history = useHistory();
 
   const classes = useStyles();
 
-  return (
+  const subGroup = (id) => {
+    setLoading(true);
+    api
+      .delete(`/groups/${id}/unsubscribe/`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then(() => {
+        getGroups();
+        setLoading(false);
+      })
+      .catch((e) => console.log("Exclude " + e));
+  };
+
+  return loading ? (
+    <div>
+      <CircularProgress className={classes.loading} />
+    </div>
+  ) : (
     <>
+      <Grid direction="row" justify="flex-end" className={classes.groupsModal}>
+        <GroupsModal api={api} setLoading={setLoading} />
+      </Grid>
+
+      <h1 className={classes.h1}>Grupos:</h1>
+
       {groups.map((group) => (
-        <Card className={classes.card}>
-          <CardActionArea className={classes.contentArea}>
-            <CardContent>
-              <Typography className={classes.title}>
-                #{group.id} - {group.name}
-              </Typography>
-            </CardContent>
-            <CardContent>
-              <Typography className={classes.description}>
-                {group.description}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
+        <Card key={group.id} className={classes.card} loading>
+          <CardContent>
+            <Typography className={classes.title}>
+              #{group.id} - {group.name}
+            </Typography>
+          </CardContent>
+          <CardContent>
+            <Typography className={classes.description}>
+              {group.description}
+            </Typography>
+          </CardContent>
+          <Button onClick={() => subGroup(group.id)}>Sair do Grupo</Button>
         </Card>
       ))}
+      <Card className={classes.card} onClick={() => history.push("/groups")}>
+        <CardActionArea className={classes.contentArea}>
+          <CardContent>
+            <Typography>Adicionar um grupo</Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
     </>
   );
 };
