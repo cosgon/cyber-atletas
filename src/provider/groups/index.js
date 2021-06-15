@@ -5,6 +5,7 @@ const GroupsContext = createContext();
 
 export const GroupsProvider = ({ children }) => {
   const [groups, setGroups] = useState([]);
+  const [selected, setSelected] = useState();
 
   const api = axios.create({
     baseURL: "https://kabit-api.herokuapp.com/",
@@ -28,7 +29,9 @@ export const GroupsProvider = ({ children }) => {
   }, []);
 
   return (
-    <GroupsContext.Provider value={{ groups, setGroups, getGroups }}>
+    <GroupsContext.Provider
+      value={{ groups, setGroups, getGroups, selected, setSelected }}
+    >
       {children}
     </GroupsContext.Provider>
   );
