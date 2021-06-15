@@ -1,7 +1,7 @@
 import { useHabits } from "../../provider/Habits";
 import useStyles from "./Styles";
 import HabitsModal from "../HabitsModal/index";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 import {
   CircularProgress,
@@ -11,16 +11,11 @@ import {
   Typography,
   Card,
 } from "@material-ui/core";
-import { useEffect } from "react";
 
 const ShowHabits = () => {
   const classes = useStyles();
 
-  const { habits, handleFormGet } = useHabits();
-
-  useEffect(() => {
-    handleFormGet();
-  }, []);
+  const { habits } = useHabits();
 
   return (
     <Grid>
@@ -29,7 +24,7 @@ const ShowHabits = () => {
           <CircularProgress className={classes.loading} />
         </Grid>
       ) : (
-        <div className={classes.container}>
+        <div>
           <Grid
             direction="row"
             justify="flex-end"
@@ -42,7 +37,7 @@ const ShowHabits = () => {
 
           {habits.map((habit) => (
             <Card className={classes.root} key={habit.id}>
-              <CardActionArea className={classes.details}>
+              <CardActionArea>
                 <Typography className={classes.h5} variant="h5">
                   {habit.title}
                 </Typography>

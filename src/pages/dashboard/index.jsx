@@ -3,12 +3,24 @@ import { useState } from "react";
 import useStyles from "./style";
 import Groups from '../../components/Groups';
 import ShowHabits from "../../components/ShowHabits";
+import { useEffect } from "react";
+import { useGroups } from "../../provider/groups";
+import { useHabits } from "../../provider/Habits";
 
 
 const Dashboard = () => {
   const classes = useStyles();
 
   const [display, setDisplay] = useState("habits");
+
+  const { getGroups } = useGroups();
+  const { handleFormGet } = useHabits();
+
+
+  useEffect(() => {
+    getGroups();
+    handleFormGet();
+  }, [])
 
   const handleClick = (value) => {
     setDisplay(value);

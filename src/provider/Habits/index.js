@@ -21,12 +21,12 @@ export const HabitsProvider = ({ children }) => {
   useEffect(() => {
     if (token) {
       setDecoded(jwt_decode(token));
-      console.log(token);
     }
+    handleFormGet();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleFormPost = (data) => {
-    console.log("api", data);
     api
       .post(
         "/habits/",
@@ -40,8 +40,8 @@ export const HabitsProvider = ({ children }) => {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
+      .then((response) => handleFormGet())
       .then(() => toast.success("Hábito Cadastrado"))
-
       .catch((error) => console.log("erro apresentado", error));
     reset();
   };
@@ -54,6 +54,8 @@ export const HabitsProvider = ({ children }) => {
       .then((response) => setHabits(response.data))
 
       .catch((error) => console.log("erro apresentado", error));
+
+    console.log(habits);
   };
 
   return (

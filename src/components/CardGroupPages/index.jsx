@@ -33,9 +33,7 @@ const CardGroupPages = ({
       setEndPoint(nextPage);
     }
   };
-  const token =
-    JSON.parse(localStorage.getItem("token")) ||
-    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIzNzg2NDU0LCJqdGkiOiIxZDYzODA3YmMzZTc0NDg5ODNiMjYxYTUyMTZlNTE1MiIsInVzZXJfaWQiOjcxOX0.Crb-Sa8HiJDfhLBOT892hlI-Uerb2Qy4jLeTL6tNbQo";
+  const token = JSON.parse(localStorage.getItem("token")) || "";
 
   const handleSubscribe = (id) => {
     api

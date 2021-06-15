@@ -24,13 +24,12 @@ const FormHabit = () => {
     resolver: yupResolver(schema),
   });
 
-  const { handleFormPost, handleFormGet } = useHabits();
+  const { handleFormPost } = useHabits();
 
   const classes = useStyles();
 
   const handleForm = (data) => {
     handleFormPost(data);
-    handleFormGet();
     reset();
   };
 
