@@ -17,7 +17,9 @@ export const GroupsProvider = ({ children }) => {
       .get("/groups/subscriptions/", {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then((response) => setGroups(response.data));
+      .then((response) => {
+        setGroups(response.data);
+      });
   };
 
   useEffect(() => {
