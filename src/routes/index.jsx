@@ -1,10 +1,9 @@
+import PageRegister from "../pages/pageRegister";
 import { Route, Switch } from "react-router";
-
 import Dashboard from "../pages/dashboard";
 import GroupPage from "../pages/groupPage";
-import PageHome from "../pages/pageHome";
 import PageLogin from "../pages/pageLogin";
-import PageRegister from "../pages/pageRegister";
+import PageHome from "../pages/pageHome";
 
 const Routes = () => {
   return (
@@ -12,18 +11,23 @@ const Routes = () => {
       <Route exact path="/">
         <PageHome />
       </Route>
-      <Route path="/PageLogin">
+      <Route exact path="/PageLogin">
         <PageLogin />
       </Route>
-      <Route path="/PageRegister">
+      <Route exact path="/PageRegister">
         <PageRegister />
       </Route>
-      <Route exact path="/"></Route>
       <Route exact path="/dashboard">
         <Dashboard />
       </Route>
-      <Route>
-        <GroupPage path="/Groups" />
+      <Route exact path="/Groups">
+        <GroupPage />
+      </Route>
+      <Route exact path="/Groups">
+        <GroupPage />
+      </Route>
+      <Route exact path="/Group">
+        <GroupPage />
       </Route>
     </Switch>
   );

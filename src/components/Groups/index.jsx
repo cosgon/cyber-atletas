@@ -42,7 +42,7 @@ const Groups = () => {
 
   const toPage = (id) => {
     setSelected(id);
-    history.push("/groupinfo");
+    history.push("/group");
   };
 
   return loading ? (
