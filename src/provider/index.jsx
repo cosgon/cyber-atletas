@@ -1,5 +1,5 @@
 import { HabitsProvider } from "./Habits";
-import { GroupsProvider } from "./groups";
+import { GroupsProvider } from "./Groups";
 import { RegisterProvider } from "./Register";
 import { LoginProvider } from "./Login";
 const Providers = ({ children }) => {
