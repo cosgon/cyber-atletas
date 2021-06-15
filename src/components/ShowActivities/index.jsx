@@ -9,10 +9,11 @@ import {
   CircularProgress,
 } from "@material-ui/core";
 
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 const ShowActivities = () => {
   const [showActivities, setShowActivities] = useState();
+  const [loading, setLoading] = useState(false);
 
   const classes = useStyles();
 
@@ -21,17 +22,22 @@ const ShowActivities = () => {
   });
 
   const getActivities = () => {
-    api.get("groups/13/").then((response) => {
-      setShowActivities(response.data.activities);
-      toast.success("Atividade Cadastrada");
-    });
+    setLoading(true);
+    api
+      .get("groups/13/")
+      .then((response) => {
+        setShowActivities(response.data.activities);
+        toast.success("Atividade Cadastrada");
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
   };
 
   useEffect(() => {
     getActivities();
   }, []);
 
-  return showActivities === undefined ? (
+  return loading ? (
     <div>
       <CircularProgress className={classes.loading} />
     </div>
