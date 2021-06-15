@@ -11,6 +11,7 @@ import {
   Typography,
   Card,
 } from "@material-ui/core";
+import ShowActivities from "../ShowActivities";
 
 const ShowHabits = () => {
   const classes = useStyles();
@@ -52,6 +53,7 @@ const ShowHabits = () => {
           </CardActionArea>
         </Card>
       ))}
+      <ShowActivities />
     </div>
   );
 };
