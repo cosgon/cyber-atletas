@@ -7,6 +7,8 @@ import { Button, TextField } from "@material-ui/core";
 import useStyles from './style.js';
 import { Link } from 'react-router-dom';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
+import { useHabits } from "../../provider/Habits";
+import { useGroups } from "../../provider/groups";
 
 const Login = () => {
 
@@ -28,9 +30,12 @@ const Login = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(schema),
     });
+    const { handleFormGet } = useHabits();
+    const { getGroups } = useGroups();
 
     const handleMyForm = (data) => {
-        console.log(data);
+        handleFormGet();
+        getGroups();
         loginUser(data);
         reset();
         history.push("/dashboard");
