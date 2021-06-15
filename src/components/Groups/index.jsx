@@ -5,12 +5,14 @@ import {
   Typography,
   Button,
   CircularProgress,
+  Grid,
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { useGroups } from "../../provider/groups";
 import useStyles from "./style";
 import axios from "axios";
 import { useState } from "react";
+import GroupsModal from "../GroupsModal";
 
 const Groups = () => {
   const api = axios.create({
@@ -46,6 +48,12 @@ const Groups = () => {
     </div>
   ) : (
     <>
+      <Grid direction="row" justify="flex-end" className={classes.groupsModal}>
+        <GroupsModal api={api} setLoading={setLoading} />
+      </Grid>
+
+      <h1 className={classes.h1}>Grupos:</h1>
+
       {groups.map((group) => (
         <Card key={group.id} className={classes.card} loading>
           <CardContent>

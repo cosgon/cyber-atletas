@@ -28,6 +28,21 @@ const useStyles = makeStyles({
     color: "#faed26",
     margin: "50vh auto",
   },
+  h1: {
+    fontSize: "54px",
+    fontWeight: "700",
+    color: "#f5f5f5",
+    marginBottom: "20px",
+    textAlign: "center",
+  },
+  groupsModal: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "flex-end",
+    marginBottom: "2rem",
+    marginRight: "2rem",
+    marginTop: "2rem",
+  },
 });
 
 export default useStyles;
