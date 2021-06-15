@@ -53,7 +53,6 @@ const ShowHabits = () => {
           </CardActionArea>
         </Card>
       ))}
-      <ShowActivities />
     </div>
   );
 };

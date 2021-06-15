@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
+import useStyles from "./style";
 import {
   Card,
   CardActionArea,
@@ -13,25 +14,45 @@ import {
 
 const ShowActivities = () => {
   const [showActivities, setShowActivities] = useState();
+  const [loading, setLoading] = useState(false);
+
+  const classes = useStyles();
+
   const api = axios.create({
     baseURL: "https://kabit-api.herokuapp.com/",
   });
 
   const getActivities = () => {
-    api
-      .get("groups/13/")
-      .then((response) => setShowActivities(response.data.activities));
+    setLoading(true);
+    api.get("groups/13/").then((response) => {
+      setShowActivities(response.data.activities);
+      setLoading(false);
+    });
   };
 
   useEffect(() => {
     getActivities();
   }, []);
 
-  return (
-    <>
-      <h1> oi</h1>
-      {console.log(showActivities)}
-    </>
+  {
+    console.log(showActivities);
+  }
+  return showActivities === undefined ? (
+    <div>
+      <CircularProgress className={classes.loading} />
+    </div>
+  ) : (
+    <div>
+      {showActivities.map((activities) => (
+        <Card className={classes.card}>
+          <CardContent>
+            <Typography>
+              <h3>{activities.title}</h3>
+            </Typography>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
   );
 };
 
