@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 import axios from "axios";
 import useStyles from "./style";
 import {
@@ -9,7 +9,7 @@ import {
   CircularProgress,
 } from "@material-ui/core";
 
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 const ShowActivities = () => {
   const [showActivities, setShowActivities] = useState();

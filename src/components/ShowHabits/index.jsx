@@ -12,8 +12,6 @@ import {
   Card,
 } from "@material-ui/core";
 
-import FormActiveties from "../FormActivities";
-
 const ShowHabits = () => {
   const classes = useStyles();
 
