@@ -2,21 +2,15 @@ import { createContext, useContext } from "react";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 
 export const LoginContext = createContext();
-
-const notifyError = (error) =>
-  toast(error, {
-    autoClose: 2000,
-    hideProgressBar: true,
-    position: "top-center",
-  });
 
 const api = axios.create({
   baseURL: "https://kabit-api.herokuapp.com",
 });
-
 export const LoginProvider = ({ children }) => {
+  const history = useHistory();
 
   const loginUser = (data) => {
     api
@@ -26,10 +20,10 @@ export const LoginProvider = ({ children }) => {
         localStorage.clear();
         localStorage.setItem("token", JSON.stringify(response.data.access));
         localStorage.setItem("user_id", JSON.stringify(user_id));
-
+        history.push("/dashboard");
       })
       .catch((e) => {
-        notifyError(e.response.data.detail);
+        toast.error("Verifique seu email ou senha!")
       });
   }
 
