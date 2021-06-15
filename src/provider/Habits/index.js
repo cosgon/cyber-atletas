@@ -10,6 +10,7 @@ const HabitsContext = createContext();
 export const HabitsProvider = ({ children }) => {
   const [habits, setHabits] = useState([]);
   const [decoded, setDecoded] = useState({});
+  const [loadin, setLoading] = useState(false);
   const { reset } = useForm();
 
   const api = axios.create({
@@ -21,12 +22,14 @@ export const HabitsProvider = ({ children }) => {
   useEffect(() => {
     if (token) {
       setDecoded(jwt_decode(token));
+      console.log(decoded);
     }
     handleFormGet();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleFormPost = (data) => {
+    setLoading(true);
     api
       .post(
         "/habits/",
@@ -40,9 +43,15 @@ export const HabitsProvider = ({ children }) => {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
-      .then((response) => handleFormGet())
-      .then(() => toast.success("Hábito Cadastrado"))
-      .catch((error) => console.log("erro apresentado", error));
+      .then((response) => {
+        handleFormGet();
+        toast.success("Hábito Cadastrado");
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log("erro apresentado", error);
+        setLoading(false);
+      });
     reset();
   };
 
@@ -55,7 +64,7 @@ export const HabitsProvider = ({ children }) => {
 
       .catch((error) => console.log("erro apresentado", error));
 
-    console.log(habits);
+    // console.log(habits);
   };
 
   return (

@@ -25,11 +25,7 @@ const ShowHabits = () => {
         </Grid>
       ) : (
         <div>
-          <Grid
-            direction="row"
-            justify="flex-end"
-            className={classes.habitsModal}
-          >
+          <Grid className={classes.habitsModal}>
             <HabitsModal />
           </Grid>
           <ToastContainer />
