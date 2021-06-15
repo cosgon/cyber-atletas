@@ -4,7 +4,7 @@ import * as yup from "yup";
 import { TextField, Button } from "@material-ui/core";
 
 import useStyles from "./Styles";
-import { useGroups } from "../../provider/groups";
+import { useGroups } from "../../provider/Groups";
 
 const FormGroups = ({ api, setLoading }) => {
   const schema = yup.object().shape({

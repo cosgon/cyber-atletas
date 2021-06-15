@@ -8,7 +8,7 @@ import {
   Grid,
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
-import { useGroups } from "../../provider/groups";
+import { useGroups } from "../../provider/Groups";
 import useStyles from "./style";
 import axios from "axios";
 import { useState } from "react";

@@ -6,7 +6,7 @@ import { useLogin } from '../../provider/Login';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import { useHabits } from "../../provider/Habits";
-import { useGroups } from "../../provider/groups";
+import { useGroups } from "../../provider/Groups";
 import { ToastContainer } from "react-toastify";
 import useStyles from './style.js';
 import * as yup from "yup";

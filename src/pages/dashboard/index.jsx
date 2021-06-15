@@ -4,7 +4,7 @@ import useStyles from "./style";
 import Groups from "../../components/Groups";
 import ShowHabits from "../../components/ShowHabits";
 import { useHabits } from "../../provider/Habits";
-import { useGroups } from "../../provider/groups";
+import { useGroups } from "../../provider/Groups";
 import { useEffect } from "react";
 
 const Dashboard = () => {

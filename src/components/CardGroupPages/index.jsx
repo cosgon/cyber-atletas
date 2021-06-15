@@ -11,7 +11,7 @@ import {
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useGroups } from "../../provider/groups";
+import { useGroups } from "../../provider/Groups";
 const CardGroupPages = ({
   allGroups,
   previousPage,
