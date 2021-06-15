@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { useLogin } from "../Login";
 
 const GroupsContext = createContext();
 
@@ -11,7 +12,7 @@ export const GroupsProvider = ({ children }) => {
     baseURL: "https://kabit-api.herokuapp.com/",
   });
 
-  const token = JSON.parse(localStorage.getItem("token")) || "";
+  const { token } = useLogin();
 
   const getGroups = () => {
     api
@@ -22,11 +23,6 @@ export const GroupsProvider = ({ children }) => {
         setGroups(response.data);
       });
   };
-
-  useEffect(() => {
-    getGroups();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <GroupsContext.Provider
