@@ -1,9 +1,10 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, createMuiTheme, withStyles } from '@material-ui/core/styles';
+import { TextField } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
 
    root: {
-      backgroundColor: '#46344e',
+      backgroundColor: '#46344E',
       flexGrow: '1',
       minHeight: '100vh',
       height: '100%',
@@ -33,11 +34,11 @@ const useStyles = makeStyles((theme) => ({
    link: {
       textDecoration: "none",
       margin: "2px 0", 
-      color: "#d9d9d9", 
+      color: "#D9D9D9", 
     },
 
     textField: {
-       borderColor: "#d9d9d9",
+       borderColor: "#D9D9D9",
     },
 
     box : {
@@ -49,5 +50,30 @@ const useStyles = makeStyles((theme) => ({
       color: 'red',
     }
 }));
+
+export const theme = createMuiTheme({
+   palette: {
+      primary: {
+         main: '#FE6B8B',
+      },
+      secondary: {
+         main: '#FAED26',
+      },
+   },
+});
+
+export const CssTextField = withStyles({
+   root: {
+      '&& fieldset': {
+         borderColor: '#FAED26',
+      },
+      '&&:hover fieldset': {
+         borderColor: 'yellow',
+      },
+      '&& label' : {
+         color: '#FAED26'
+      },
+   },
+})(TextField);
 
 export default useStyles;           
