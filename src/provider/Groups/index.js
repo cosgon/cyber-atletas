@@ -11,13 +11,13 @@ export const GroupsProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("@CyberAtletas/SelectedGroupId"))
   );
   const [activities, setActivities] = useState([]);
+  const [goals, setGoals] = useState([]);
   const api = axios.create({
     baseURL: "https://kabit-api.herokuapp.com",
   });
 
   const { token } = useLogin();
-  const [loading, setLoading] = useState(false)
-
+  const [loading, setLoading] = useState(false);
 
   const subGroup = (id) => {
     setLoading(true);
@@ -60,6 +60,18 @@ export const GroupsProvider = ({ children }) => {
       .catch(() => setLoading(false));
   };
 
+  const getGoals = (id) => {
+    setLoading(true);
+    api
+      .get(`groups/${id}/`)
+      .then((response) => {
+        setGoals(response.data.goals);
+
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  };
+
   const getGroups = () => {
     api
       .get("/groups/subscriptions/", {
@@ -72,6 +84,8 @@ export const GroupsProvider = ({ children }) => {
   return (
     <GroupsContext.Provider
       value={{
+        goals,
+        getGoals,
         getActivities,
         loading,
         activities,

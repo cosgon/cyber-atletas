@@ -1,4 +1,10 @@
-import { Grid, Button, Avatar, Typography, IconButton } from "@material-ui/core";
+import {
+  Grid,
+  Button,
+  Avatar,
+  Typography,
+  IconButton,
+} from "@material-ui/core";
 import { useState } from "react";
 import useStyles from "./style";
 import Groups from "../../components/Groups";
@@ -6,10 +12,10 @@ import ShowHabits from "../../components/ShowHabits";
 import { useHabits } from "../../provider/Habits";
 import { useGroups } from "../../provider/Groups";
 import { useEffect } from "react";
-import { useLogin } from '../../provider/Login';
+import { useLogin } from "../../provider/Login";
 import axios from "axios";
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import Devs from '../../components/Devs';
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import Devs from "../../components/Devs";
 
 const Dashboard = () => {
   const classes = useStyles();
@@ -18,7 +24,7 @@ const Dashboard = () => {
   const { handleFormGet } = useHabits();
   const { getGroups } = useGroups();
   const { userId, logout } = useLogin();
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState("");
   const api = axios.create({
     baseURL: "https://kabit-api.herokuapp.com",
   });
@@ -26,11 +32,10 @@ const Dashboard = () => {
   const getUserName = () => {
     api
       .get(`/users/${userId}/`)
-      .then(({data}) => {
+      .then(({ data }) => {
         setUserName(data.username);
-        console.log(data);
       })
-      .catch(err => console.log('entrou'));
+      .catch((err) => console.log("entrou"));
   };
 
   useEffect(() => {
@@ -47,15 +52,9 @@ const Dashboard = () => {
 
   return (
     <Grid className={classes.root}>
-      <Grid
-        container
-        className={classes.userBox}
-      >
+      <Grid container className={classes.userBox}>
         <Avatar className={classes.userImage} />
-        <Typography
-          variant="h3"
-          className={classes.userName}
-        >
+        <Typography variant="h3" className={classes.userName}>
           {userName}
         </Typography>
         <Button
@@ -80,16 +79,13 @@ const Dashboard = () => {
           DEVS
         </Button>
         <IconButton onClick={logout}>
-          <ExitToAppIcon className={classes.out}/>
+          <ExitToAppIcon className={classes.out} />
         </IconButton>
       </Grid>
-      <Grid
-        container
-        className={classes.resumeBox}
-      >
+      <Grid container className={classes.resumeBox}>
         {display === "habits" && <ShowHabits />}
         {display === "groups" && <Groups />}
-        {display === 'devs' && <Devs />}
+        {display === "devs" && <Devs />}
       </Grid>
     </Grid>
   );
