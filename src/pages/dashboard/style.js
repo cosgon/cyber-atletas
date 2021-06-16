@@ -71,6 +71,9 @@ const useStyles = makeStyles({
       boxShadow: "1px 1px 5px 4px #FFFFFF40",
     },
   },
+  out: {
+    color: '#FFF'
+  },
 });
 
 export default useStyles;
