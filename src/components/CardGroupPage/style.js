@@ -3,8 +3,7 @@ import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles({
     card: {
         backgroundColor: "#463446",
-        width: "34rem",
-        height: "10rem",
+        width: "80vw",
         borderRadius: "2rem",
         textAlign: "center",
     },

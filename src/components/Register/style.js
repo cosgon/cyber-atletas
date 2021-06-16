@@ -1,4 +1,7 @@
+import { createMuiTheme, withStyles } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
+import { TextField } from "@material-ui/core";
+
 
 const useStyles = makeStyles((theme) => ({
 
@@ -37,6 +40,39 @@ const useStyles = makeStyles((theme) => ({
       color: "#d9d9d9",
    },
 
+   box: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      maxWidth: '415px',
+      color: 'red',
+   },
+
 }));
+
+export const theme = createMuiTheme({
+   palette: {
+      primary: {
+         main: '#FE6B8B',
+      },
+      secondary: {
+         main: '#faed26',
+      },
+   },
+});
+
+export const CssTextField = withStyles({
+   root: {
+      '& .MuiOutlinedInput-root': {
+         '& fieldset': {
+            borderColor: '#faed26',
+         },
+         '&:hover fieldset': {
+            borderColor: 'yellow',
+         },
+      },
+   },
+})(TextField);
 
 export default useStyles;

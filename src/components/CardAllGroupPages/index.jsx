@@ -11,8 +11,9 @@ import {
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useGroups } from "../../provider/groups";
-const CardGroupPages = ({
+import { useGroups } from "../../provider/Groups";
+import { useLogin } from "../../provider/Login";
+const CardAllGroupPages = ({
   allGroups,
   previousPage,
   nextPage,
@@ -33,7 +34,7 @@ const CardGroupPages = ({
       setEndPoint(nextPage);
     }
   };
-  const token = JSON.parse(localStorage.getItem("token")) || "";
+  const { token } = useLogin();
 
   const handleSubscribe = (id) => {
     api
@@ -56,7 +57,7 @@ const CardGroupPages = ({
     <div className={classes.container}>
       <ToastContainer />
       <h1 className={classes.h1}>Grupos:</h1>
-      {allGroups.map((currentGroup, index) => {
+      {allGroups?.map((currentGroup, index) => {
         return (
           <Card className={classes.root} key={index}>
             <CardActionArea className={classes.details}>
@@ -134,4 +135,4 @@ const CardGroupPages = ({
     </div>
   );
 };
-export default CardGroupPages;
+export default CardAllGroupPages;

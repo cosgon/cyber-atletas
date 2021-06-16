@@ -4,7 +4,8 @@ import useStyles from "./style";
 import Groups from "../../components/Groups";
 import ShowHabits from "../../components/ShowHabits";
 import { useHabits } from "../../provider/Habits";
-import { useGroups } from "../../provider/groups";
+import { useGroups } from "../../provider/Groups";
+import { useEffect } from "react";
 
 const Dashboard = () => {
   const classes = useStyles();
@@ -13,11 +14,15 @@ const Dashboard = () => {
   const { handleFormGet } = useHabits();
   const { getGroups } = useGroups();
 
+  useEffect(() => {
+    handleFormGet();
+    getGroups();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const handleClick = (value) => {
     handleFormGet();
     getGroups();
     setDisplay(value);
-    console.log(display);
   };
 
   return (
@@ -26,7 +31,6 @@ const Dashboard = () => {
         container
         alignItems="center"
         justify="space-evenly"
-        direction="column"
         className={classes.userBox}
       >
         <Avatar className={classes.userImage} />

@@ -1,10 +1,10 @@
-import { Route, Switch } from "react-router";
-
-import Dashboard from "../pages/dashboard";
-import GroupPage from "../pages/groupPage";
-import PageHome from "../pages/pageHome";
-import PageLogin from "../pages/pageLogin";
 import PageRegister from "../pages/pageRegister";
+import { Route, Switch } from "react-router";
+import Dashboard from "../pages/dashboard";
+import AllGroupsPages from "../pages/allGroupsPages";
+import PageLogin from "../pages/pageLogin";
+import PageHome from "../pages/pageHome";
+import GroupPage from "../pages/groupPage";
 
 const Routes = () => {
   return (
@@ -12,18 +12,20 @@ const Routes = () => {
       <Route exact path="/">
         <PageHome />
       </Route>
-      <Route path="/PageLogin">
+      <Route exact path="/PageLogin">
         <PageLogin />
       </Route>
-      <Route path="/PageRegister">
+      <Route exact path="/PageRegister">
         <PageRegister />
       </Route>
-      <Route exact path="/"></Route>
       <Route exact path="/dashboard">
         <Dashboard />
       </Route>
-      <Route>
-        <GroupPage path="/Groups" />
+      <Route exact path="/Group">
+        <GroupPage />
+      </Route>
+      <Route exact path="/AllGroupsPage">
+        <AllGroupsPages />
       </Route>
     </Switch>
   );

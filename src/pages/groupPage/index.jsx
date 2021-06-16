@@ -1,39 +1,18 @@
-import CardGroupPages from "../../components/CardGroupPages";
-import { useEffect, useState } from "react";
-import React from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import CardGroupPage from "../../components/CardGroupPage";
+import { useGroups } from "../../provider/Groups";
 
 const GroupPage = () => {
   const api = axios.create({ baseURL: "https://kabit-api.herokuapp.com" });
-  const [previousPage, setPreviousPage] = useState("");
-  const [endPoint, setEndPoint] = useState("/groups/");
-  const [allGroups, setAllGroups] = useState([]);
-  const [nextPage, setNextPage] = useState("");
-  const [loading, setLoading] = useState(false);
-
+  const { selected } = useGroups();
+  const [group, setGroup] = useState({});
   useEffect(() => {
-    setLoading(true);
-    api.get(endPoint).then((response) => {
-      setNextPage(response.data.next);
-      setPreviousPage(response.data.previous);
-      setAllGroups(response.data.results);
-      setLoading(false);
+    api.get(`/groups/${selected}/`).then(({ data }) => {
+      setGroup(data);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [endPoint]);
-
-  return (
-    <div>
-      <CardGroupPages
-        previousPage={previousPage}
-        setEndPoint={setEndPoint}
-        setLoading={setLoading}
-        allGroups={allGroups}
-        nextPage={nextPage}
-        loading={loading}
-        api={api}
-      />
-    </div>
-  );
+  }, []);
+  return <CardGroupPage group={group}></CardGroupPage>;
 };
 export default GroupPage;

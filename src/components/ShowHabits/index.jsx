@@ -17,8 +17,6 @@ const ShowHabits = () => {
 
   const { habits, loading } = useHabits();
 
-  console.log(loading);
-
   return loading ? (
     <Grid className={classes.container}>
       <CircularProgress className={classes.loading} />

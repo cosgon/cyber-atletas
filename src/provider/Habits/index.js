@@ -1,31 +1,22 @@
-import { createContext, useState, useContext, useEffect } from "react";
-import axios from "axios";
-import { useForm } from "react-hook-form";
-import jwt_decode from "jwt-decode";
+import { createContext, useState, useContext } from "react";
 import "react-toastify/dist/ReactToastify.css";
+import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { useLogin } from "../Login";
+import axios from "axios";
 
 const HabitsContext = createContext();
 
 export const HabitsProvider = ({ children }) => {
   const [habits, setHabits] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [decoded, setDecoded] = useState({});
   const { reset } = useForm();
 
   const api = axios.create({
     baseURL: "https://kabit-api.herokuapp.com/",
   });
 
-  const token = JSON.parse(localStorage.getItem("token")) || "";
-
-  useEffect(() => {
-    if (token) {
-      setDecoded(jwt_decode(token));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
+  const { token, userId } = useLogin();
   const handleFormPost = (data) => {
     api
       .post(
@@ -34,7 +25,7 @@ export const HabitsProvider = ({ children }) => {
           ...data,
           achieved: false,
           how_much_achieved: 30,
-          user: decoded.user_id,
+          user: userId,
         },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -64,8 +55,6 @@ export const HabitsProvider = ({ children }) => {
         setLoading(false);
       });
   };
-
-  console.log(loading);
 
   return (
     <HabitsContext.Provider
