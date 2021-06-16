@@ -8,7 +8,7 @@ const GroupsContext = createContext();
 export const GroupsProvider = ({ children }) => {
   const [groups, setGroups] = useState([]);
   const [selected, setSelected] = useState(
-    JSON.parse(localStorage.getItem("@CyberAtletas/SelectedGroupId")) || 0
+    JSON.parse(localStorage.getItem("@CyberAtletas/SelectedGroupId"))
   );
   const [activities, setActivities] = useState([]);
   const api = axios.create({
@@ -32,10 +32,10 @@ export const GroupsProvider = ({ children }) => {
       .catch((e) => console.log("Exclude " + e));
   };
 
-  const getActivities = () => {
+  const getActivities = (id) => {
     setLoading(true);
     api
-      .get(`groups/${selected}/`)
+      .get(`groups/${id}/`)
       .then((response) => {
         setActivities(response.data.activities);
 

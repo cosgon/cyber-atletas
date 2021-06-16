@@ -56,7 +56,7 @@ const Groups = () => {
           </Typography>
           <Button
             onClick={() => {
-              getActivities();
+              getActivities(group.id);
               toPage(group.id);
             }}
           >
