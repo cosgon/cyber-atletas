@@ -1,5 +1,5 @@
 import useStyles from "./style";
-import { Card, CardContent, CircularProgress } from "@material-ui/core";
+import { Card, CardContent, CircularProgress, Grid } from "@material-ui/core";
 import { useGroups } from "../../provider/Groups";
 import { useEffect } from "react";
 
@@ -16,7 +16,7 @@ const ShowActivities = ({ id }) => {
       <CircularProgress className={classes.loading} />
     </div>
   ) : (
-    <div>
+    <Grid>
       {activities?.map((activities, index) => (
         <Card className={classes.card} key={index}>
           <CardContent>
@@ -24,7 +24,7 @@ const ShowActivities = ({ id }) => {
           </CardContent>
         </Card>
       ))}
-    </div>
+    </Grid>
   );
 };
 

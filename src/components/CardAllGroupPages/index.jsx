@@ -22,7 +22,8 @@ const CardAllGroupPages = ({
 }) => {
   const api = axios.create({ baseURL: "https://kabit-api.herokuapp.com" });
   const classes = useStyles();
-  const { groups, getGroups } = useGroups();
+  const { groups, getGroups, subGroup } = useGroups();
+
   const handlePreviousPage = () => {
     if (previousPage) {
       setEndPoint(previousPage);
@@ -94,12 +95,13 @@ const CardAllGroupPages = ({
                 </Button>
               ) : (
                 <Button
-                  className={classes.subscribeButton}
-                  variant="contained"
-                  color="primary"
-                  disabled
+                  className={classes.button}
+                  onClick={() => {
+                    subGroup(currentGroup.id);
+                    getGroups();
+                  }}
                 >
-                  inscrito
+                  Desinscrever
                 </Button>
               )}
             </CardActions>
