@@ -1,10 +1,5 @@
 import useStyles from "./style";
-import {
-  Card,
-  CardContent,
-  Typography,
-  CircularProgress,
-} from "@material-ui/core";
+import { Card, CardContent, CircularProgress } from "@material-ui/core";
 import { useGroups } from "../../provider/Groups";
 
 const ShowActivities = () => {
@@ -17,12 +12,10 @@ const ShowActivities = () => {
     </div>
   ) : (
     <div>
-      {activities?.map((activities) => (
-        <Card className={classes.card}>
+      {activities?.map((activities, index) => (
+        <Card className={classes.card} key={index}>
           <CardContent>
-            <Typography>
-              <h3>{activities.title}</h3>
-            </Typography>
+            <h3>{activities.title}</h3>
           </CardContent>
         </Card>
       ))}
