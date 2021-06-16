@@ -11,7 +11,6 @@ import {
   Typography,
   Card,
 } from "@material-ui/core";
-import ShowGoals from "../ShowGoals";
 
 const ShowHabits = () => {
   const classes = useStyles();

@@ -13,7 +13,7 @@ export const GroupsProvider = ({ children }) => {
   const [activities, setActivities] = useState([]);
   const [goals, setGoals] = useState([]);
   const api = axios.create({
-    baseURL: "https://kabit-api.herokuapp.com/",
+    baseURL: "https://kabit-api.herokuapp.com",
   });
 
   const { token } = useLogin();
@@ -30,6 +30,22 @@ export const GroupsProvider = ({ children }) => {
         setLoading(false);
       })
       .catch((e) => console.log("Exclude " + e));
+  };
+
+  const deleteActivity = (id) => {
+    setLoading(true);
+    api
+      .delete(`/activities/${id}/`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then(() => {
+        getActivities(selected);
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+        toast.error("Nao foi possivel deletar")
+      });
   };
 
   const getActivities = (id) => {
@@ -79,6 +95,7 @@ export const GroupsProvider = ({ children }) => {
         selected,
         setSelected,
         subGroup,
+        deleteActivity
       }}
     >
       {children}

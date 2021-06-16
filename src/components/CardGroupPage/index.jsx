@@ -29,7 +29,7 @@ const CardGroupPage = ({ group }) => {
           Voltar
         </Button>
         <Button
-          className={classes.button}
+          className={classes.buttonRemove}
           onClick={() => {
             subGroup(selected);
             getGroups();

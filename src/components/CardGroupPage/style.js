@@ -69,6 +69,17 @@ const useStyles = makeStyles({
         color: "#FFFFFF",
         margin: "0 20px",
         width: "150px"
+    },
+    buttonRemove: {
+        background: "#FE6B8B",
+        "&:hover": {
+            transition: "0.6s",
+            backgroundColor: "#463446",
+            boxShadow: "1px 1px 5px 4px #FFFFFF40",
+        },
+        color: "#FFFFFF",
+        margin: "0 20px",
+        width: "150px"
     }
 });
 export default useStyles;

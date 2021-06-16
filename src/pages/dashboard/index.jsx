@@ -14,7 +14,12 @@ import { useGroups } from "../../provider/Groups";
 import { useEffect } from "react";
 import { useLogin } from "../../provider/Login";
 import axios from "axios";
+<<<<<<< HEAD
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+=======
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import Devs from '../../components/Devs';
+>>>>>>> 65351bcd42c391e5f846e16a909c195a4903816f
 
 const Dashboard = () => {
   const classes = useStyles();
@@ -73,7 +78,7 @@ const Dashboard = () => {
         <Button
           variant="contained"
           className={classes.button}
-          onClick={() => handleClick("ativits")}
+          onClick={() => handleClick("devs")}
         >
           DEVS
         </Button>
@@ -84,6 +89,7 @@ const Dashboard = () => {
       <Grid container className={classes.resumeBox}>
         {display === "habits" && <ShowHabits />}
         {display === "groups" && <Groups />}
+        {display === 'devs' && <Devs />}
       </Grid>
     </Grid>
   );
