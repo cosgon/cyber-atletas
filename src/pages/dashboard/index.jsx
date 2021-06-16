@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { useLogin } from '../../provider/Login';
 import axios from "axios";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import Devs from '../../components/Devs';
 
 const Dashboard = () => {
   const classes = useStyles();
@@ -74,7 +75,7 @@ const Dashboard = () => {
         <Button
           variant="contained"
           className={classes.button}
-          onClick={() => handleClick("ativits")}
+          onClick={() => handleClick("devs")}
         >
           DEVS
         </Button>
@@ -88,6 +89,7 @@ const Dashboard = () => {
       >
         {display === "habits" && <ShowHabits />}
         {display === "groups" && <Groups />}
+        {display === 'devs' && <Devs />}
       </Grid>
     </Grid>
   );
