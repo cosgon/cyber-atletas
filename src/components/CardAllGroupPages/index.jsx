@@ -57,7 +57,7 @@ const CardAllGroupPages = ({
     <div className={classes.container}>
       <ToastContainer />
       <h1 className={classes.h1}>Grupos:</h1>
-      {allGroups.map((currentGroup, index) => {
+      {allGroups?.map((currentGroup, index) => {
         return (
           <Card className={classes.root} key={index}>
             <CardActionArea className={classes.details}>
