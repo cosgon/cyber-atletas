@@ -49,7 +49,7 @@ export const GroupsProvider = ({ children }) => {
     api
       .get(`groups/${id}/`)
       .then((response) => {
-        setActivities(response.data.goals);
+        setGoals(response.data.goals);
 
         setLoading(false);
       })

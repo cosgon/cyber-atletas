@@ -7,9 +7,9 @@ const ShowGoals = ({ id }) => {
   const classes = useStyles();
 
   const { goals, loading, selected, getGoals } = useGroups();
-  console.log(goals);
+
   useEffect(() => {
-    getGoals(id);
+    getGoals(selected);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return loading || false ? (
@@ -21,8 +21,8 @@ const ShowGoals = ({ id }) => {
       {goals?.map((goals, index) => (
         <Card className={classes.card} key={index}>
           <CardContent>
-            <h3>{goals.title}</h3>
-            <p> {goals.difficulty}</p>
+            <h3>titulo: {goals.title}</h3>
+            <p> Dificuldade {goals.difficulty}</p>
             <p>{goals.how_much_achieved}</p>
           </CardContent>
         </Card>
