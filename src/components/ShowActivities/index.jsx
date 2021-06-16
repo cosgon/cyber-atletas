@@ -9,9 +9,7 @@ import {
   CircularProgress,
 } from "@material-ui/core";
 
-import { toast, ToastContainer } from "react-toastify";
-
-const ShowActivities = () => {
+const ShowActivities = ({ id }) => {
   const [showActivities, setShowActivities] = useState();
   const [loading, setLoading] = useState(false);
 
@@ -24,18 +22,18 @@ const ShowActivities = () => {
   const getActivities = () => {
     setLoading(true);
     api
-      .get("groups/13/")
+      .get(`groups/${id}/`)
       .then((response) => {
         setShowActivities(response.data.activities);
-        toast.success("Atividade Cadastrada");
+
         setLoading(false);
       })
       .catch(() => setLoading(false));
   };
 
-  useEffect(() => {
-    getActivities();
-  }, []);
+  // useEffect(() => {
+  //   getActivities();
+  // }, []);
 
   return loading ? (
     <div>
@@ -43,8 +41,7 @@ const ShowActivities = () => {
     </div>
   ) : (
     <div>
-      <ToastContainer />
-      {showActivities.map((activities) => (
+      {showActivities?.map((activities) => (
         <Card className={classes.card}>
           <CardContent>
             <Typography>
