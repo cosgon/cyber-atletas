@@ -1,29 +1,16 @@
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import { yupResolver } from "@hookform/resolvers/yup";
-import { withStyles } from '@material-ui/core/styles';
-import { Button, TextField } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import { useLogin } from '../../provider/Login';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import { useHabits } from "../../provider/Habits";
 import { useGroups } from "../../provider/Groups";
 import { ToastContainer } from "react-toastify";
-import useStyles from './style.js';
+import useStyles, { theme, CssTextField } from './style.js';
 import * as yup from "yup";
+import { ThemeProvider } from '@material-ui/core/styles';
 
-
-const CssTextField = withStyles({
-    root: {
-        '& .MuiOutlinedInput-root': {
-            '& fieldset': {
-                borderColor: '#faed26',
-            },
-            '&:hover fieldset': {
-                borderColor: 'yellow',
-            },
-        },
-    },
-})(TextField);
 
 const Login = () => {
 
@@ -56,7 +43,7 @@ const Login = () => {
     };
 
     return (
-        <>
+        <ThemeProvider theme={theme}>
             <ToastContainer
                 position="top-right"
                 autoClose={5000}
@@ -77,8 +64,7 @@ const Login = () => {
                         variant="outlined"
                         label="Usuário"
                         size="small"
-                        color="secondary"
-                        placeholder="Usuário"
+                        color="primary"
                         {...register("username")} />
                     <p>{errors.username?.message}</p>
                 </div>
@@ -88,10 +74,9 @@ const Login = () => {
                         variant="outlined"
                         label="Senha"
                         size="small"
-                        color="secondary"
+                        color="primary"
                         type="password"
                         className="inputSenha"
-                        placeholder="Senha"
                         {...register("password")} />
                     <p>{errors.password?.message}</p>
                 </div>
@@ -104,7 +89,7 @@ const Login = () => {
                 </div>
                 <Link className={classes.link} to="/"> Home</Link>
             </form>
-        </>
+        </ThemeProvider>
     );
 }
 export default Login;

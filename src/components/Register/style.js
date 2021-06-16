@@ -64,13 +64,14 @@ export const theme = createMuiTheme({
 
 export const CssTextField = withStyles({
    root: {
-      '& .MuiOutlinedInput-root': {
-         '& fieldset': {
-            borderColor: '#faed26',
-         },
-         '&:hover fieldset': {
-            borderColor: 'yellow',
-         },
+      '&& fieldset': {
+         borderColor: '#faed26',
+      },
+      '&&:hover fieldset': {
+         borderColor: 'yellow',
+      },
+      '&& label' : {
+         color: '#FAED26'
       },
    },
 })(TextField);
