@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles({
   card: {
     background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
-    color: "#ffffff",
+    color: "#FFF",
     width: "34rem",
     borderRadius: "2rem",
     textAlign: "center",
@@ -13,25 +13,25 @@ const useStyles = makeStyles({
     height: "100%",
   },
   title: {
-    color: "#ffffff",
+    color: "#FFF",
     fontWeight: "bold",
     fontSize: "1.3rem",
     overflowWrap: "break-word",
   },
   description: {
-    color: "#ffffff",
+    color: "#FFF",
     fontWeight: "lighter",
     fontSize: "1rem",
     overflowWrap: "break-word",
   },
   loading: {
-    color: "#faed26",
+    color: "#FAED26",
     margin: "50vh auto",
   },
   h1: {
     fontSize: "54px",
     fontWeight: "700",
-    color: "#f5f5f5",
+    color: "#F5F5F5",
     marginBottom: "20px",
     textAlign: "center",
   },
@@ -42,6 +42,14 @@ const useStyles = makeStyles({
     marginBottom: "2rem",
     marginRight: "2rem",
     marginTop: "2rem",
+  },
+  button: {
+    color: '#463446',
+    "&:hover": {
+      transition: "0.6s",
+      color: "#F5F5F5",
+      boxShadow: "1px 1px 20px 4px #FFFFFF40",
+    },
   },
 });
 

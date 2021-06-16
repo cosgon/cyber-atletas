@@ -59,6 +59,7 @@ const Groups = () => {
               getActivities(group.id);
               toPage(group.id);
             }}
+            className={classes.button}
           >
             Mais detalhes
           </Button>
