@@ -1,5 +1,6 @@
 import { Card, CardContent, Typography } from "@material-ui/core";
 import ShowActivities from "../ShowActivities";
+import FormActiveties from "../FormActivities";
 import useStyles from "./style";
 
 const CardGroupPage = ({ group }) => {
@@ -16,6 +17,7 @@ const CardGroupPage = ({ group }) => {
       </CardContent>
       <CardContent className={classes.times}>
         <Typography>Atividades:</Typography>
+        <FormActiveties />
         <ShowActivities id={group.id} />
       </CardContent>
     </Card>

@@ -3,6 +3,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { TextField, Button } from "@material-ui/core";
 import axios from "axios";
+import { useLogin } from "../../provider/Login";
+import { useGroups } from "../../provider/Groups";
 
 const FormActiveties = () => {
   const api = axios.create({
@@ -22,19 +24,19 @@ const FormActiveties = () => {
     resolver: yupResolver(schema),
   });
 
-  const token = JSON.parse(localStorage.getItem("token")) || "";
-
+  const { token } = useLogin();
+  const { getActivities, selected } = useGroups();
   const handleForm = (data) => {
     api
       .post(
         "/activities/",
-        { ...data, realization_time: new Date(), group: 619 },
+        { ...data, realization_time: new Date(), group: selected },
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
-      .then((response) => {
-        console.log(response.data);
+      .then(() => {
+        getActivities(selected);
       });
     reset();
   };

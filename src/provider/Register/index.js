@@ -15,7 +15,7 @@ export const RegisterProvider = ({ children }) => {
             history.push("/PageLogin");
             toast.success("Cadastrado com sucesso!")
          })
-         .catch((e) => toast.error(`Usuario ou email ja cadastrado!`))
+         .catch((e) => toast.error(`Usuario ou email ja cadastrado!`));
    }
 
    return (
