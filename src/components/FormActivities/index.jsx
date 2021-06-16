@@ -5,8 +5,10 @@ import { TextField, Button } from "@material-ui/core";
 import axios from "axios";
 import { useLogin } from "../../provider/Login";
 import { useGroups } from "../../provider/Groups";
+import useStyles from "./style";
 
 const FormActiveties = () => {
+  const classes = useStyles();
   const api = axios.create({
     baseURL: "https://kabit-api.herokuapp.com/",
   });
@@ -58,7 +60,12 @@ const FormActiveties = () => {
       </div>
 
       <div>
-        <Button type="submit" variant="contained" color="primary">
+        <Button
+          className={classes.subscribeButton}
+          type="submit"
+          variant="contained"
+          color="primary"
+        >
           Salvar
         </Button>
       </div>
