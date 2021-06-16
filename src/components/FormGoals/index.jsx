@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useGroups } from "../../provider/Groups";
 import { useLogin } from "../../provider/Login/";
 import { toast } from "react-toastify";
@@ -17,7 +16,7 @@ import useStyles from "./style";
 
 const FormGoals = () => {
   const classes = useStyles();
-  const [counter, setCounter] = useState(0);
+
   const { token } = useLogin();
   const { selected } = useGroups();
 

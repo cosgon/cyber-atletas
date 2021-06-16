@@ -28,7 +28,7 @@ const ShowHabits = () => {
         <HabitsModal />
       </Grid>
       <ToastContainer />
-      <FormGoals />
+
       <h1 className={classes.h1}>Hábitos:</h1>
 
       {habits.map((habit) => (
