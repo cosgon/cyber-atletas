@@ -15,7 +15,7 @@ const useStyles = makeStyles({
   },
 
   select: {
-    width: "40%",
+    width: "100%",
   },
 
   progress: {

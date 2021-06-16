@@ -72,6 +72,22 @@ export const GroupsProvider = ({ children }) => {
       .catch(() => setLoading(false));
   };
 
+  const deleteGoal = (id) => {
+    setLoading(true);
+    api
+      .delete(`/goals/${id}/`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then(() => {
+        getGoals(selected);
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+        toast.error("Nao foi possivel deletar")
+      });
+  };
+
   const getGroups = () => {
     api
       .get("/groups/subscriptions/", {
@@ -95,7 +111,8 @@ export const GroupsProvider = ({ children }) => {
         selected,
         setSelected,
         subGroup,
-        deleteActivity
+        deleteActivity,
+        deleteGoal,
       }}
     >
       {children}
