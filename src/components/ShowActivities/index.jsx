@@ -27,8 +27,18 @@ const ShowActivities = ({ id }) => {
       {activities?.map((activities, index) => (
         <Card className={classes.card} key={index}>
           <CardContent>
-            <Fab onClick={() => deleteActivity(activities.id)}>X</Fab>
             <h3>{activities.title}</h3>
+          </CardContent>
+          <CardContent>
+            <Fab
+              variant="contained"
+              color="secondary"
+              className={classes.buttonRemove}
+              aria-label="Remove"
+              onClick={() => deleteActivity(activities.id)}
+            >
+              X
+            </Fab>
           </CardContent>
         </Card>
       ))}

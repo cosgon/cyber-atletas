@@ -18,7 +18,7 @@ const FormGoals = () => {
   const classes = useStyles();
 
   const { token } = useLogin();
-  const { selected } = useGroups();
+  const { selected, getGoals } = useGroups();
 
   const api = axios.create({
     baseURL: "https://kabit-api.herokuapp.com/",
@@ -30,9 +30,7 @@ const FormGoals = () => {
     formState: { errors },
     reset,
   } = useForm();
-
   const handleForm = (data) => {
-    console.log("test");
     api
       .post(
         "/goals/",
@@ -41,8 +39,8 @@ const FormGoals = () => {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
-      .then((response) => {
-        console.log(response.data);
+      .then(() => {
+        getGoals(selected);
         toast.success("Meta Cadastrada");
       })
       .catch(() => toast.error("Erro ao cadastrar"));
@@ -72,7 +70,6 @@ const FormGoals = () => {
           </InputLabel>
           <Select
             defaultValue={"Médio"}
-            value={"Médio"}
             label="Dificuldade "
             {...register("difficulty")}
           >

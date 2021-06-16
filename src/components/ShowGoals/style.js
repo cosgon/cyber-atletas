@@ -8,6 +8,9 @@ const useStyles = makeStyles({
     borderRadius: "2rem",
     textAlign: "center",
     marginTop: "20px",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   loading: {
     color: "#faed26",
