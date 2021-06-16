@@ -1,4 +1,4 @@
-import { Grid, Button, Avatar, Typography } from "@material-ui/core";
+import { Grid, Button, Avatar, Typography, IconButton } from "@material-ui/core";
 import { useState } from "react";
 import useStyles from "./style";
 import Groups from "../../components/Groups";
@@ -8,6 +8,7 @@ import { useGroups } from "../../provider/Groups";
 import { useEffect } from "react";
 import { useLogin } from '../../provider/Login';
 import axios from "axios";
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const Dashboard = () => {
   const classes = useStyles();
@@ -15,7 +16,7 @@ const Dashboard = () => {
   const [display, setDisplay] = useState("habits");
   const { handleFormGet } = useHabits();
   const { getGroups } = useGroups();
-  const { userId } = useLogin();
+  const { userId, logout } = useLogin();
   const [userName, setUserName] = useState('');
   const api = axios.create({
     baseURL: "https://kabit-api.herokuapp.com",
@@ -77,6 +78,9 @@ const Dashboard = () => {
         >
           DEVS
         </Button>
+        <IconButton onClick={logout}>
+          <ExitToAppIcon className={classes.out}/>
+        </IconButton>
       </Grid>
       <Grid
         container
