@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import CardDashboard from "../../components/CardGroupPage";
-import CardGroupPages from "../../components/CardAllGroupPages";
+import CardGroupPage from "../../components/CardGroupPage";
 import { useGroups } from "../../provider/Groups";
 
 const GroupPage = () => {
@@ -14,6 +13,6 @@ const GroupPage = () => {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  return <CardDashboard group={group}></CardDashboard>;
+  return <CardGroupPage group={group}></CardGroupPage>;
 };
 export default GroupPage;

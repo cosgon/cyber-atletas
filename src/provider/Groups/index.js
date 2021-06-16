@@ -10,12 +10,39 @@ export const GroupsProvider = ({ children }) => {
   const [selected, setSelected] = useState(
     JSON.parse(localStorage.getItem("@CyberAtletas/SelectedGroupId")) || 0
   );
-
+  const [activities, setActivities] = useState([]);
   const api = axios.create({
     baseURL: "https://kabit-api.herokuapp.com/",
   });
 
   const { token } = useLogin();
+  const [loading, setLoading] = useState(false)
+
+
+  const subGroup = (id) => {
+    setLoading(true);
+    api
+      .delete(`/groups/${id}/unsubscribe/`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then(() => {
+        getGroups();
+        setLoading(false);
+      })
+      .catch((e) => console.log("Exclude " + e));
+  };
+
+  const getActivities = () => {
+    setLoading(true);
+    api
+      .get(`groups/${selected}/`)
+      .then((response) => {
+        setActivities(response.data.activities);
+
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  };
 
   const getGroups = () => {
     api
@@ -28,7 +55,17 @@ export const GroupsProvider = ({ children }) => {
 
   return (
     <GroupsContext.Provider
-      value={{ groups, setGroups, getGroups, selected, setSelected }}
+      value={{
+        getActivities,
+        loading,
+        activities,
+        groups,
+        setGroups,
+        getGroups,
+        selected,
+        setSelected,
+        subGroup,
+      }}
     >
       {children}
     </GroupsContext.Provider>

@@ -1,6 +1,3 @@
-import { useEffect, useState } from "react";
-
-import axios from "axios";
 import useStyles from "./style";
 import {
   Card,
@@ -8,41 +5,19 @@ import {
   Typography,
   CircularProgress,
 } from "@material-ui/core";
+import { useGroups } from "../../provider/Groups";
 
-const ShowActivities = ({ id }) => {
-  const [showActivities, setShowActivities] = useState();
-  const [loading, setLoading] = useState(false);
-
+const ShowActivities = () => {
   const classes = useStyles();
 
-  const api = axios.create({
-    baseURL: "https://kabit-api.herokuapp.com/",
-  });
-
-  const getActivities = () => {
-    setLoading(true);
-    api
-      .get(`groups/${id}/`)
-      .then((response) => {
-        setShowActivities(response.data.activities);
-
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  };
-
-  useEffect(() => {
-    getActivities();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  return loading ? (
+  const { loading, activities } = useGroups();
+  return loading || false ? (
     <div>
       <CircularProgress className={classes.loading} />
     </div>
   ) : (
     <div>
-      {showActivities?.map((activities) => (
+      {activities?.map((activities) => (
         <Card className={classes.card}>
           <CardContent>
             <Typography>
