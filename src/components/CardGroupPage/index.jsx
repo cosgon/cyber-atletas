@@ -1,13 +1,8 @@
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  Typography,
-} from "@material-ui/core";
+import { Card, CardContent, Typography } from "@material-ui/core";
 import ShowActivities from "../ShowActivities";
 import useStyles from "./style";
 
-const CardDashboard = ({ group }) => {
+const CardGroupPage = ({ group }) => {
   const classes = useStyles();
 
   return (
@@ -20,13 +15,11 @@ const CardDashboard = ({ group }) => {
         <Typography>Descricao: {group.description}</Typography>
       </CardContent>
       <CardContent className={classes.times}>
-        <Typography>
-          Atividades:
-          <ShowActivities id={group.id} />
-        </Typography>
+        <Typography>Atividades:</Typography>
+        <ShowActivities id={group.id} />
       </CardContent>
     </Card>
   );
 };
 
-export default CardDashboard;
+export default CardGroupPage;

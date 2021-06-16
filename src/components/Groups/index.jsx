@@ -19,7 +19,7 @@ const Groups = () => {
     baseURL: "https://kabit-api.herokuapp.com/",
   });
 
-  const { groups, setSelected } = useGroups();
+  const { groups, setSelected, getActivities } = useGroups();
 
   const [loading, setLoading] = useState(false);
 
@@ -27,21 +27,9 @@ const Groups = () => {
 
   const classes = useStyles();
 
-  // const subGroup = (id) => {
-  //   setLoading(true);
-  //   api
-  //     .delete(`/groups/${id}/unsubscribe/`, {
-  //       headers: { Authorization: `Bearer ${token}` },
-  //     })
-  //     .then(() => {
-  //       getGroups();
-  //       setLoading(false);
-  //     })
-  //     .catch((e) => console.log("Exclude " + e));
-  // };
-
   const toPage = (id) => {
     setSelected(id);
+    localStorage.setItem("@CyberAtletas/SelectedGroupId", JSON.stringify(id));
     history.push("/group");
   };
 
@@ -51,25 +39,29 @@ const Groups = () => {
     </div>
   ) : (
     <>
-      <Grid direction="row" justify="flex-end" className={classes.groupsModal}>
+      <Grid className={classes.groupsModal}>
         <GroupsModal api={api} setLoading={setLoading} />
       </Grid>
 
       <h1 className={classes.h1}>Grupos:</h1>
 
       {groups.map((group) => (
-        <Card key={group.id} className={classes.card} loading>
-          <CardContent>
-            <Typography className={classes.title}>
-              #{group.id} - {group.name}
-            </Typography>
-          </CardContent>
-          <CardContent>
-            <Typography className={classes.description}>
-              {group.description}
-            </Typography>
-          </CardContent>
-          <Button onClick={() => toPage(group.id)}>Sair do Grupo</Button>
+        <Card key={group.id} className={classes.card}>
+          <Typography className={classes.title}>
+            #{group.id} - {group.name}
+          </Typography>
+
+          <Typography className={classes.description}>
+            {group.description}
+          </Typography>
+          <Button
+            onClick={() => {
+              getActivities();
+              toPage(group.id);
+            }}
+          >
+            Mais detalhes
+          </Button>
         </Card>
       ))}
       <Card

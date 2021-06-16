@@ -23,7 +23,6 @@ const Dashboard = () => {
     handleFormGet();
     getGroups();
     setDisplay(value);
-    console.log(display);
   };
 
   return (
@@ -32,7 +31,6 @@ const Dashboard = () => {
         container
         alignItems="center"
         justify="space-evenly"
-        direction="column"
         className={classes.userBox}
       >
         <Avatar className={classes.userImage} />

@@ -11,14 +11,11 @@ import {
   Typography,
   Card,
 } from "@material-ui/core";
-import ShowActivities from "../ShowActivities";
 
 const ShowHabits = () => {
   const classes = useStyles();
 
   const { habits, loading } = useHabits();
-
-  console.log(loading);
 
   return loading ? (
     <Grid className={classes.container}>
@@ -30,7 +27,7 @@ const ShowHabits = () => {
         <HabitsModal />
       </Grid>
       <ToastContainer />
-      <ShowActivities />
+
       <h1 className={classes.h1}>Hábitos:</h1>
 
       {habits.map((habit) => (
