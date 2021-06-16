@@ -17,8 +17,16 @@ export const LoginProvider = ({ children }) => {
   const [token, setToken] = useState(
     JSON.parse(localStorage.getItem("@CyberAtletas/Token")) || ""
   );
+
   const history = useHistory();
   useEffect(() => {}, []);
+
+  const logout = () => {
+    setToken("");
+    setUserId(0);
+    localStorage.clear();
+    history.push("/");
+  };
 
   const loginUser = (data) => {
     api
@@ -40,7 +48,7 @@ export const LoginProvider = ({ children }) => {
   };
 
   return (
-    <LoginContext.Provider value={{ loginUser, userId, token }}>
+    <LoginContext.Provider value={{ loginUser, userId, token, logout }}>
       {" "}
       {children}{" "}
     </LoginContext.Provider>
