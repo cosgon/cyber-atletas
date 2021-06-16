@@ -42,6 +42,7 @@ const Groups = () => {
 
   const toPage = (id) => {
     setSelected(id);
+    localStorage.setItem("@CyberAtletas/SelectedGroupId", JSON.stringify(id));
     history.push("/group");
   };
 

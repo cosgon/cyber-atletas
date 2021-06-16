@@ -7,7 +7,9 @@ const GroupsContext = createContext();
 
 export const GroupsProvider = ({ children }) => {
   const [groups, setGroups] = useState([]);
-  const [selected, setSelected] = useState();
+  const [selected, setSelected] = useState(
+    JSON.parse(localStorage.getItem("@CyberAtletas/SelectedGroupId")) || 0
+  );
 
   const api = axios.create({
     baseURL: "https://kabit-api.herokuapp.com/",
