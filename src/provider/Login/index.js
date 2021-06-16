@@ -11,13 +11,14 @@ const api = axios.create({
 });
 
 export const LoginProvider = ({ children }) => {
-  const [userId, setUserId] = useState(JSON.parse(localStorage.getItem("@CyberAtletas/Id")) || 0)
-  const [token, setToken] = useState(JSON.parse(localStorage.getItem("@CyberAtletas/Token")) || "")
+  const [userId, setUserId] = useState(
+    JSON.parse(localStorage.getItem("@CyberAtletas/Id")) || 0
+  );
+  const [token, setToken] = useState(
+    JSON.parse(localStorage.getItem("@CyberAtletas/Token")) || ""
+  );
   const history = useHistory();
-  useEffect(() => {
-
-
-  }, [])
+  useEffect(() => {}, []);
 
   const loginUser = (data) => {
     api
@@ -26,17 +27,23 @@ export const LoginProvider = ({ children }) => {
         const { user_id } = jwt_decode(data.access);
         setToken(data.access);
         setUserId(user_id);
-        localStorage.setItem("@CyberAtletas/Token", JSON.stringify(token))
-        localStorage.setItem("@CyberAtletas/Id", JSON.stringify(user_id))
+        localStorage.setItem(
+          "@CyberAtletas/Token",
+          JSON.stringify(data.access)
+        );
+        localStorage.setItem("@CyberAtletas/Id", JSON.stringify(user_id));
         history.push("/dashboard");
       })
       .catch(() => {
-        toast.error("Verifique seu email ou senha!")
+        toast.error("Verifique seu email ou senha!");
       });
-  }
+  };
 
   return (
-    <LoginContext.Provider value={{ loginUser, userId, token }}> {children} </LoginContext.Provider>
+    <LoginContext.Provider value={{ loginUser, userId, token }}>
+      {" "}
+      {children}{" "}
+    </LoginContext.Provider>
   );
 };
 

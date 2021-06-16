@@ -9,6 +9,10 @@ const useStyles = makeStyles({
     textAlign: "center",
     marginTop: "20px",
   },
+  loading: {
+    color: "#faed26",
+    margin: "50vh auto",
+  },
 });
 
 export default useStyles;

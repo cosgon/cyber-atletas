@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 import axios from "axios";
 import useStyles from "./style";
 import {
@@ -9,8 +9,9 @@ import {
   CircularProgress,
 } from "@material-ui/core";
 
-const ShowActivities = () => {
+const ShowActivities = ({ id }) => {
   const [showActivities, setShowActivities] = useState();
+  const [loading, setLoading] = useState(false);
 
   const classes = useStyles();
 
@@ -19,22 +20,28 @@ const ShowActivities = () => {
   });
 
   const getActivities = () => {
-    api.get("groups/13/").then((response) => {
-      setShowActivities(response.data.activities);
-    });
+    setLoading(true);
+    api
+      .get(`groups/${id}/`)
+      .then((response) => {
+        setShowActivities(response.data.activities);
+
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
   };
 
-  useEffect(() => {
-    getActivities();
-  }, []);
+  // useEffect(() => {
+  //   getActivities();
+  // }, []);
 
-  return showActivities === undefined ? (
+  return loading ? (
     <div>
       <CircularProgress className={classes.loading} />
     </div>
   ) : (
     <div>
-      {showActivities.map((activities) => (
+      {showActivities?.map((activities) => (
         <Card className={classes.card}>
           <CardContent>
             <Typography>
