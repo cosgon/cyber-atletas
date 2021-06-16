@@ -5,6 +5,7 @@ import { TextField, Button } from "@material-ui/core";
 
 import useStyles from "./Styles";
 import { useGroups } from "../../provider/Groups";
+import { useLogin } from "../../provider/Login";
 
 const FormGroups = ({ api, setLoading }) => {
   const schema = yup.object().shape({
@@ -26,7 +27,7 @@ const FormGroups = ({ api, setLoading }) => {
 
   const { getGroups } = useGroups();
 
-  const token = JSON.parse(localStorage.getItem("token")) || "";
+  const { token } = useLogin();
 
   const handleForm = (data) => {
     setLoading(true);
