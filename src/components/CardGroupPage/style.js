@@ -48,8 +48,10 @@ const useStyles = makeStyles({
     },
     times: {
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "space-around",
+        width: "80%",
         color: "#FAED26",
+        margin: "30px 0 0 0",
     },
     icon: {
         color: "green",
