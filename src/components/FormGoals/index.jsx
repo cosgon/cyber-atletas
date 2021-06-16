@@ -70,7 +70,12 @@ const FormGoals = () => {
           <InputLabel id="demo-controlled-open-select-label">
             Dificuldade da Meta
           </InputLabel>
-          <Select label="Dificuldade " {...register("difficulty")}>
+          <Select
+            defaultValue={"Médio"}
+            value={"Médio"}
+            label="Dificuldade "
+            {...register("difficulty")}
+          >
             <option className={classes.option} aria-label="None" value="" />
             <option className={classes.option} value={"Fácil"}>
               Fácil
