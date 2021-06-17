@@ -75,7 +75,7 @@ const CardAllGroupPages = ({
                   variant="body2"
                   color="textSecondary"
                   component="p"
-                  className={classes.text}
+                  className={classes.text2}
                 >
                   {currentGroup.description}
                 </Typography>
@@ -88,7 +88,7 @@ const CardAllGroupPages = ({
                 <Button
                   className={classes.subscribeButton}
                   variant="contained"
-                  color="primary"
+                  color="secondary"
                   onClick={() => handleSubscribe(currentGroup.id)}
                 >
                   inscreva-se
