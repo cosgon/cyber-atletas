@@ -1,5 +1,4 @@
 import { Modal, Button } from "@material-ui/core/";
-import AddIcon from "@material-ui/icons/Add";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { Grid } from "@material-ui/core";
