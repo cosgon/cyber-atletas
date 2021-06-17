@@ -48,19 +48,15 @@ const CardGroupPage = ({ group }) => {
             <CardContent className={classes.title}>
               <Typography variant="h3">Atividades:</Typography>
             </CardContent>
-            <CardContent>
-              <ActivitiesModal />
-              <ShowActivities id={group.id} />
-            </CardContent>
+            <ActivitiesModal />
+            <ShowActivities id={group.id} className={classes.title} />
           </CardContent>
           <CardContent className={classes.containerGoals}>
             <CardContent className={classes.title}>
               <Typography variant="h3">Metas</Typography>
             </CardContent>
-            <CardContent>
-              <GoalsModal />
-              <ShowGoals id={group.id} />
-            </CardContent>
+            <GoalsModal />
+            <ShowGoals id={group.id} className={classes.title} />
           </CardContent>
         </main>
       </section>
