@@ -4,7 +4,6 @@ const useStyles = makeStyles({
 
    root: {
       backgroundColor: '#46344e',
-      flexGrow: '1',
       height: '100%',
       width: '100%',
       minHeight: '30vh',
