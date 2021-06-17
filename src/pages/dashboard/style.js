@@ -48,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
     scrollbarFaceColor: "black",
     [theme.breakpoints.down("sm")]: {
       overflow: "visible",
+      height: "auto",
     },
   },
   userImage: {

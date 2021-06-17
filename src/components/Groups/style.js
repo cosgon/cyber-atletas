@@ -8,12 +8,13 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "2rem",
     textAlign: "center",
     marginTop: "20px",
+    marginBottom: "20px",
     [theme.breakpoints.down("sm")]: {
       width: "18rem",
       padding: "20px",
     },
-    marginBottom: "30px",
   },
+
   test: {
     listStyle: "none",
   },
