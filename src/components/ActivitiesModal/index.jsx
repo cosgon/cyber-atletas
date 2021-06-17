@@ -1,4 +1,4 @@
-import { Modal, Button } from "@material-ui/core/";
+import { Modal, Button, CardContent, Typography } from "@material-ui/core/";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { Grid } from "@material-ui/core";
@@ -24,7 +24,9 @@ const ActivitiesModal = () => {
   return (
     <Grid>
       <Button className={classes.add} type="button" onClick={handleOpen}>
-        Adicionar atividade
+        <CardContent>
+          <Typography variant="h4">Adicionar atividade</Typography>
+        </CardContent>
       </Button>
       <Modal
         aria-labelledby="transition-modal-title"
