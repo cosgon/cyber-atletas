@@ -8,6 +8,7 @@ const useStyles = makeStyles({
     borderRadius: "2rem",
     textAlign: "center",
     marginTop: "20px",
+    marginBottom: "30px",
   },
 
   contentCard: {
