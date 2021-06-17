@@ -9,11 +9,14 @@ import {
 } from "@material-ui/core";
 import { useGroups } from "../../provider/Groups";
 import { useEffect, useState } from "react";
+import { GolfCourseSharp } from "@material-ui/icons";
 
 const ShowGoals = ({ id }) => {
   const classes = useStyles();
-
+  const [operator, setOperator] = useState("");
   const {
+    setOneGoal,
+    oneGoal,
     getOneGoal,
     counter,
     updateGoals,
@@ -25,13 +28,12 @@ const ShowGoals = ({ id }) => {
     deleteGoal,
   } = useGroups();
 
-  console.log(counter);
-
   useEffect(() => {
     getGoals(selected);
-    getOneGoal(goals.id);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return loading || false ? (
     <div>
       <CircularProgress className={classes.loading} />
@@ -48,8 +50,7 @@ const ShowGoals = ({ id }) => {
                 className={classes.increment}
                 variant="contained"
                 onClick={() => {
-                  setCounter(counter + 10);
-                  updateGoals(goals.id);
+                  updateGoals(goals.id, goals.how_much_achieved, "add");
                 }}
               >
                 {" "}
@@ -66,8 +67,7 @@ const ShowGoals = ({ id }) => {
                 className={classes.increment}
                 variant="contained"
                 onClick={() => {
-                  setCounter(counter - 10);
-                  updateGoals(goals.id);
+                  updateGoals(goals.id, goals.how_much_achieved, "sub");
                 }}
               >
                 {" "}
