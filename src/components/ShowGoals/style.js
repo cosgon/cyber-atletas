@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#FFFFFF",
   },
   title: {
-    width: "9rem",
+    width: "10rem",
     textAlign: "center",
     "&& h4": {
       overflow: "hidden",
