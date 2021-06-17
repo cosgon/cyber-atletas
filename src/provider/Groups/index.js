@@ -18,8 +18,6 @@ export const GroupsProvider = ({ children }) => {
 
   const { token } = useLogin();
   const [loading, setLoading] = useState(false);
-  const [counter, setCounter] = useState(0);
-  const [oneGoal, setOneGoal] = useState({});
 
   const subGroup = (id) => {
     setLoading(true);
@@ -99,44 +97,32 @@ export const GroupsProvider = ({ children }) => {
       .catch(() => toast.error("Erro ao buscar grupos!"));
   };
 
-  const updateGoals = (id) => {
-    setLoading(true);
+  const updateGoals = (id, achieved, operator) => {
+    let updateChield = achieved;
+    if (achieved <= 100 && operator === "add") {
+      updateChield += 10;
+    } else if (achieved <= 100 && achieved > 0) {
+      updateChield -= 10;
+    }
     api
       .patch(
         `/goals/${id}/`,
-        { how_much_achieved: counter },
+        { how_much_achieved: updateChield },
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
       .then(() => {
         getGoals(selected);
-        setLoading(false);
       })
       .catch(() => {
-        setLoading(false);
         toast.error("Nao foi possivel Atualizar");
       });
-  };
-
-  const getOneGoal = (id) => {
-    setLoading(true);
-    api
-      .get(`groups/${id}/`)
-      .then((response) => {
-        setOneGoal(response.data.goals.how_much_achieved);
-
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
   };
 
   return (
     <GroupsContext.Provider
       value={{
-        getOneGoal,
-        counter,
-        setCounter,
         updateGoals,
         goals,
         getGoals,
