@@ -1,34 +1,79 @@
 import { makeStyles } from "@material-ui/core";
-
-const useStyles = makeStyles({
-    card: {
-        backgroundColor: "#463446",
-        width: "80vw",
-        borderRadius: "2rem",
-        textAlign: "center",
+const useStyles = makeStyles((theme) => ({
+    container: {
+        boxSizing: "border-box",
+        overflow: "hidden",
+        minWidth: "320px",
+        [theme.breakpoints.down("sm")]: {
+            backgroundColor: "#463446"
+        },
+        [theme.breakpoints.up("sm")]: {
+            margin: "30px auto",
+            backgroundColor: "#5A556070",
+            borderRadius: "2.3rem"
+        }
     },
-    descript: {
+    header: {
+        margin: "20px 0 0 0",
+    },
+    button: {
+        background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+        "&:hover": {
+            transition: "0.6s",
+            backgroundColor: "#463446",
+            boxShadow: "1px 1px 5px 4px #FFFFFF40",
+        },
+        color: "#FFFFFF",
+    },
+    title: {
+        textAlign: "center",
+        '&& h2': {
+            color: "#FFFFFF",
+            fontWeight: "700",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+        },
+        '&& h3': {
+            color: "#FFFFFF",
+            fontWeight: "700",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+        }
+    },
+    info: {
+        textAlign: "center",
+        '&& h4': {
+            color: "#FFFFFF",
+            fontWeight: "700",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+        },
+        '&& p': {
+            color: "#FFFFFF",
+            fontWeight: "700",
+            overflow: "hidden",
+            textOverflow: "ellipsis"
+        }
+    },
+    containerContent: {
+        width: "100%",
         display: "flex",
         flexDirection: "row",
-        justifyContent: "space-evenly",
-        color: "#FAED26",
-        padding: "0rem",
-        fontSize: "1rem",
+        flexWrap: "wrap",
+        justifyContent: "space-around",
+
+
     },
-    habit: {
-        color: "#FAED26",
-        fontWeight: 800,
-        fontSize: "2rem",
-        letterSpacing: "0.35rem",
+    containerActivities: {
+        [theme.breakpoints.up("sm")]: {
+            width: "40%"
+        }
     },
-    container: {
-        height: "100%",
+    containerGoals: {
+        padding: "0",
+        [theme.breakpoints.up("sm")]: {
+            width: "40%"
+        }
     },
-    times: {
-        color: "#FAED26",
-    },
-    icon: {
-        color: "green",
-    },
-});
+}));
 export default useStyles;

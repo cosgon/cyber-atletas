@@ -18,6 +18,7 @@ export const HabitsProvider = ({ children }) => {
 
   const { token, userId } = useLogin();
   const handleFormPost = (data) => {
+    setLoading(true);
     api
       .post(
         "/habits/",
@@ -34,8 +35,12 @@ export const HabitsProvider = ({ children }) => {
       .then(() => {
         handleFormGet();
         toast.success("Hábito Cadastrado");
+        setLoading(false);
       })
-      .catch((error) => console.log("erro apresentado", error));
+      .catch(() => {
+        toast.error("Erro ao salvar Hábito");
+        setLoading(false);
+      });
     reset();
   };
 
@@ -50,15 +55,32 @@ export const HabitsProvider = ({ children }) => {
         setLoading(false);
       })
 
-      .catch((error) => {
-        console.log("erro apresentado", error);
+      .catch(() => {
+        toast.error("Erro ao buscar Hábito");
         setLoading(false);
+      });
+  };
+
+  const deletehabits = (id) => {
+    setLoading(true);
+    api
+      .delete(`/habits/${id}/`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then(() => {
+        handleFormGet();
+        toast.error("Hábito deletado");
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+        toast.error("Nao foi possivel deletar");
       });
   };
 
   return (
     <HabitsContext.Provider
-      value={{ loading, habits, handleFormPost, handleFormGet }}
+      value={{ loading, habits, handleFormPost, handleFormGet, deletehabits }}
     >
       {children}
     </HabitsContext.Provider>

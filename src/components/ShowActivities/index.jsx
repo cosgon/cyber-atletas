@@ -1,30 +1,41 @@
-import useStyles from "./style";
-import { Card, CardContent, CircularProgress } from "@material-ui/core";
+import { Card, CardContent, Fab, Typography } from "@material-ui/core";
 import { useGroups } from "../../provider/Groups";
 import { useEffect } from "react";
+import useStyles from "./style";
 
-const ShowActivities = ({ id }) => {
+const ShowActivities = () => {
   const classes = useStyles();
 
-  const { loading, activities, selected, getActivities } = useGroups();
+  const { activities, selected, getActivities, deleteActivity } = useGroups();
   useEffect(() => {
     getActivities(selected);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  return loading || false ? (
-    <div>
-      <CircularProgress className={classes.loading} />
-    </div>
-  ) : (
-    <div>
-      {activities?.map((activities, index) => (
-        <Card className={classes.card} key={index}>
-          <CardContent>
-            <h3>{activities.title}</h3>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
+  return (
+    <Card className={classes.container}>
+      <ul>
+        {activities?.map((activities) => (
+          <li className={classes.card} key={activities.id}>
+            <CardContent className={classes.containerActivity}>
+              <CardContent className={classes.title}>
+                <Typography variant="h4">{activities.title}</Typography>
+              </CardContent>
+              <CardContent>
+                <Fab
+                  variant="contained"
+                  color="secondary"
+                  className={classes.buttonRemove}
+                  aria-label="Remove"
+                  onClick={() => deleteActivity(activities.id)}
+                >
+                  X
+                </Fab>
+              </CardContent>
+            </CardContent>
+          </li>
+        ))}
+      </ul>
+    </Card>
   );
 };
 

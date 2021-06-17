@@ -10,12 +10,13 @@ import {
   CardContent,
   Typography,
   Card,
+  Button,
 } from "@material-ui/core";
 
 const ShowHabits = () => {
   const classes = useStyles();
 
-  const { habits, loading } = useHabits();
+  const { habits, loading, deletehabits } = useHabits();
 
   return loading ? (
     <Grid className={classes.container}>
@@ -27,6 +28,7 @@ const ShowHabits = () => {
         <HabitsModal />
       </Grid>
       <ToastContainer />
+
       <h1 className={classes.h1}>Hábitos:</h1>
 
       {habits.map((habit) => (
@@ -47,6 +49,14 @@ const ShowHabits = () => {
                 {habit.frequency}
               </p>
             </CardContent>
+            <Button
+              className={classes.button}
+              onClick={() => {
+                deletehabits(habit.id);
+              }}
+            >
+              Deletar Hábito
+            </Button>
           </CardActionArea>
         </Card>
       ))}
