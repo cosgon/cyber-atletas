@@ -55,9 +55,16 @@ const Login = () => {
                 draggable
                 pauseOnHover
             />
-            <form className={classes.root} onSubmit={handleSubmit(handleMyForm)}>
+            <form
+                className={classes.root}
+                onSubmit={handleSubmit(handleMyForm)}
+            >
 
-                <img className={classes.img} src="https://www.imagemhost.com.br/images/2021/06/14/Paleta-de-cores-1.png" alt="logomarca" border="0" />
+                <img
+                    className={classes.img}
+                    src="https://www.imagemhost.com.br/images/2021/06/14/Paleta-de-cores-1.png"
+                    alt="logomarca"
+                />
                 <div className={classes.box}>
                     <CssTextField
                         margin="normal"
@@ -76,18 +83,26 @@ const Login = () => {
                         size="small"
                         color="primary"
                         type="password"
-                        className="inputSenha"
                         {...register("password")} />
                     <p>{errors.password?.message}</p>
                 </div>
                 <div >
-                    <Button type="submit"
+                    <Button
+                        type="submit"
                         variant="contained"
                         size="large"
                         className={classes.button}
-                        endIcon={<ArrowRightAltIcon />}> Logar</Button>
+                        endIcon={<ArrowRightAltIcon/>}
+                    >
+                        Logar
+                    </Button>
                 </div>
-                <Link className={classes.link} to="/"> Home</Link>
+                <Link
+                    className={classes.link}
+                    to="/"
+                >
+                    Home
+                </Link>
             </form>
         </ThemeProvider>
     );

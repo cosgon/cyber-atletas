@@ -9,8 +9,6 @@ const Home = () => {
       <img
         className={classes.img}
         src="https://www.imagemhost.com.br/images/2021/06/11/logo_cyberAtletas.png"
-        height="100"
-        width="200"
         alt="Home Logo"
       />
       <div className={classes.menu}>
