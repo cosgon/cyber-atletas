@@ -1,6 +1,8 @@
 import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
     container: {
+        display: "flex",
+        flexDirection: "column",
         boxSizing: "border-box",
         overflow: "hidden",
         minWidth: "320px",
