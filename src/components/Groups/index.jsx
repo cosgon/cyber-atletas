@@ -19,7 +19,8 @@ const Groups = () => {
     baseURL: "https://kabit-api.herokuapp.com/",
   });
 
-  const { groups, setSelected, getActivities } = useGroups();
+  const { groups, setSelected, getActivities, subGroup, selected, getGroups } =
+    useGroups();
 
   const [loading, setLoading] = useState(false);
 
@@ -32,7 +33,6 @@ const Groups = () => {
     localStorage.setItem("@CyberAtletas/SelectedGroupId", JSON.stringify(id));
     history.push("/group");
   };
-
   return loading ? (
     <div>
       <CircularProgress className={classes.loading} />
@@ -62,6 +62,16 @@ const Groups = () => {
             className={classes.button}
           >
             Mais detalhes
+          </Button>
+          <Button
+            className={classes.button}
+            onClick={() => {
+              subGroup(group.id);
+              getGroups();
+              history.push("/dashboard");
+            }}
+          >
+            Desinscrever-se
           </Button>
         </Card>
       ))}
