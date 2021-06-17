@@ -68,11 +68,14 @@ export const CssTextField = withStyles({
          borderColor: '#faed26',
       },
       '&&:hover fieldset': {
-         borderColor: 'yellow',
+         borderColor: '#FAED26',
       },
       '&& label' : {
          color: '#FAED26'
       },
+      '&& input': {
+         color: '#FAED26',
+      }
    },
 })(TextField);
 
