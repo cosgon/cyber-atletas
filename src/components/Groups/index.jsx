@@ -19,7 +19,7 @@ const Groups = () => {
     baseURL: "https://kabit-api.herokuapp.com/",
   });
 
-  const { groups, setSelected, getActivities, subGroup, selected, getGroups } =
+  const { groups, setSelected, getActivities, subGroup, getGroups } =
     useGroups();
 
   const [loading, setLoading] = useState(false);
