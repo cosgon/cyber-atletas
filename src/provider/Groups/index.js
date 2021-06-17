@@ -61,15 +61,15 @@ export const GroupsProvider = ({ children }) => {
   };
 
   const getGoals = (id) => {
-    setLoading(true);
+
     api
       .get(`groups/${id}/`)
       .then((response) => {
         setGoals(response.data.goals);
 
-        setLoading(false);
+
       })
-      .catch(() => setLoading(false));
+      .catch(() => toast.error("Erro ao buscar metas"));
   };
 
   const deleteGoal = (id) => {
@@ -99,9 +99,9 @@ export const GroupsProvider = ({ children }) => {
 
   const updateGoals = (id, achieved, operator) => {
     let updateChield = achieved;
-    if (achieved <= 100 && operator === "add") {
+    if (achieved <= 90 && operator === "add") {
       updateChield += 10;
-    } else if (achieved <= 100 && achieved > 0) {
+    } else if (achieved > 0 && operator !== "add") {
       updateChield -= 10;
     }
     api
