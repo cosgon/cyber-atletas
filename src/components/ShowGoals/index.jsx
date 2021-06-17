@@ -12,8 +12,7 @@ import { useEffect } from "react";
 
 const ShowGoals = () => {
   const classes = useStyles();
-  const { updateGoals, goals, loading, selected, getGoals, deleteGoal } =
-    useGroups();
+  const { updateGoals, goals, selected, getGoals, deleteGoal } = useGroups();
 
   useEffect(() => {
     getGoals(selected);
@@ -25,7 +24,7 @@ const ShowGoals = () => {
     <Card className={classes.container}>
       <ul>
         {goals?.map((goals, index) => (
-          <li key={index}>
+          <li className={classes.flex} key={index}>
             <CardContent className={classes.containerGoals}>
               <CardContent className={classes.buttonRemove}>
                 <Fab

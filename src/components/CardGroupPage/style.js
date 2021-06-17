@@ -62,7 +62,6 @@ const useStyles = makeStyles((theme) => ({
         flexWrap: "wrap",
         justifyContent: "space-around",
 
-
     },
     containerActivities: {
         [theme.breakpoints.up("sm")]: {
