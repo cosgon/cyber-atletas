@@ -116,6 +116,19 @@ export const GroupsProvider = ({ children }) => {
         toast.error("Nao foi possivel Atualizar");
       });
   };
+  const handleSubscribe = (id) => {
+    api
+      .post(`/groups/${id}/subscribe/`, null, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(() => {
+        toast.success("Inscrito no grupo!");
+        getGroups();
+      })
+      .catch((error) => toast.error(`${error}`));
+  };
 
   return (
     <GroupsContext.Provider
@@ -134,6 +147,7 @@ export const GroupsProvider = ({ children }) => {
         subGroup,
         deleteActivity,
         deleteGoal,
+        handleSubscribe,
       }}
     >
       {children}

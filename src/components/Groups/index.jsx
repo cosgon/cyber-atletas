@@ -42,10 +42,12 @@ const Groups = () => {
       <Grid className={classes.groupsModal}>
         <GroupsModal api={api} setLoading={setLoading} />
       </Grid>
-
-      <h1 className={classes.h1}>Grupos:</h1>
-
+      <header className={classes.titleTest}>
+        <h1 className={classes.h1}>Grupos:</h1>
+      </header>
+      <ul>
       {groups.map((group) => (
+        <li className={classes.test}>
         <Card key={group.id} className={classes.card}>
           <Typography className={classes.title}>
             #{group.id} - {group.name}
@@ -74,7 +76,9 @@ const Groups = () => {
             Desinscrever-se
           </Button>
         </Card>
+        </li>
       ))}
+      </ul>
       <Card
         className={classes.card}
         onClick={() => history.push("/AllGroupsPage")}
