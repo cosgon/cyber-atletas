@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   container: {
     backgroundColor: "#00000000",
     boxShadow: "none",
@@ -18,14 +18,17 @@ const useStyles = makeStyles({
     color: "#FFFFFF",
   },
   title: {
-    width: "70%",
+    width: "9rem",
     textAlign: "center",
     "&& h4": {
       overflow: "hidden",
       textOverflow: "ellipsis",
+    },
+    [theme.breakpoints.up("sm")]: {
+      width: "70%",
     }
   }
-}
+})
 );
 
 export default useStyles;

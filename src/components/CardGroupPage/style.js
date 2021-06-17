@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-around",
-        alignItems: "flex-start",
+
 
     },
     containerActivities: {

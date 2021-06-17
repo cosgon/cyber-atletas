@@ -27,11 +27,10 @@ const ShowGoals = () => {
         {goals?.map((goals, index) => (
           <li key={index}>
             <CardContent className={classes.containerGoals}>
-              <CardContent>
+              <CardContent className={classes.buttonRemove}>
                 <Fab
                   variant="contained"
                   color="secondary"
-                  className={classes.buttonRemove}
                   aria-label="Remove"
                   onClick={() => {
                     deleteGoal(goals.id);
