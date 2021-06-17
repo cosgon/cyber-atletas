@@ -61,13 +61,10 @@ export const GroupsProvider = ({ children }) => {
   };
 
   const getGoals = (id) => {
-
     api
       .get(`groups/${id}/`)
       .then((response) => {
         setGoals(response.data.goals);
-
-
       })
       .catch(() => toast.error("Erro ao buscar metas"));
   };

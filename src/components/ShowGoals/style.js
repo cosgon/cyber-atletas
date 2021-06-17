@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#FFFFFF",
   },
   title: {
-    width: "9rem",
+    width: "10rem",
     textAlign: "center",
     "&& h4": {
       overflow: "hidden",
@@ -65,6 +65,12 @@ const useStyles = makeStyles((theme) => ({
     height: "10px",
     display: "flex",
     justifyContent: "flex-end",
+    alignItems: "center",
+  },
+  flex: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
     alignItems: "center",
   }
 })
