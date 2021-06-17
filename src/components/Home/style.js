@@ -1,45 +1,48 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
+  root: {
+    background: "#46344E",
+    height: "100vh",
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 
-   root: {
-      backgroundColor: '#46344e',
-      height: '100%',
-      width: '100%',
-      minHeight: '30vh',
-      display: 'flex',
+  img: {
+    width: "90%",
+    maxWidth: "620px",
+  },
+
+  h2: {
+    marginTop: "10px",
+  },
+
+  h4: {
+    marginTop: "10px",
+    color: "#d9d9d9",
+  },
+
+  menu: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    width: "100%",
+    maxWidth: "620px",
+    marginBottom: "10%",
+    [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
-      alignItems: 'center',
-      justifyContent: 'center',
-   },
+      alignItems: "center",
+    },
+  },
 
-   img: {
-      height: '70%',
-      width: '70%',
-   },
-
-   h2: {
-      margin: "0 10%",
-   },
-
-   h4: {
-
-      margin: "2px 0",
-      color: "#d9d9d9",
-   },
-
-   menu: {
-      display: 'flex',
-      flexDirection: "row",
-      width: '50%',
-      marginBottom: "10%",
-   },
-
-   link: {
-      color: "#faed26",
-      textDecoration: "none",
-      fontSize: "1.5em",
-   }
-});
+  link: {
+    color: "#faed26",
+    textDecoration: "none",
+    fontSize: "1.5em",
+  },
+}));
 
 export default useStyles;
