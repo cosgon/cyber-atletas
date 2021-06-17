@@ -55,8 +55,10 @@ const CardGroupPage = ({ group }) => {
             <CardContent className={classes.title}>
               <Typography variant="h3">Metas</Typography>
             </CardContent>
-            <GoalsModal />
-            <ShowGoals id={group.id} className={classes.title} />
+            <CardContent>
+              <GoalsModal />
+              <ShowGoals id={group.id} className={classes.title} />
+            </CardContent>
           </CardContent>
         </main>
       </section>

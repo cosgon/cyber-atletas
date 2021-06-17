@@ -57,6 +57,12 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "space-around",
 
+  }, buttonRemove: {
+    width: "100%",
+    height: "10px",
+    display: "flex",
+    justifyContent: "flex-end",
+    alignItems: "center",
   }
 }
 );
