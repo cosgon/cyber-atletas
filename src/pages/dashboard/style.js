@@ -12,24 +12,24 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
   },
   userBox: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "space-evenly",
     height: "553px",
     width: "290px",
     borderRadius: "2.3rem",
     backgroundColor: "#5A556070",
     [theme.breakpoints.down("sm")]: {
-      background: 'none'
+      background: "none",
     },
   },
   resumeBox: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
     height: "553px",
-    alignContent: 'flex-start',
-    justifyContent: 'space-evenly',
+    alignContent: "flex-start",
+    justifyContent: "space-evenly",
     width: "700px",
     borderRadius: "1.7rem",
     backgroundColor: "#5A556070",
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: "10px",
       backgroundColor: "#463446",
       backgroundImage:
-      "linear-gradient(150deg, #9B786F 0%, rgba(90, 85, 96, 0) 20%)",
+        "linear-gradient(150deg, #9B786F 0%, rgba(90, 85, 96, 0) 20%)",
       height: "4rem",
     },
     "&::-webkit-scrollbar-thumb": {
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
       overflow: "visible",
     },
   },
-    userImage: {
+  userImage: {
     marginTop: "10px",
     width: "130px",
     height: "130px",
@@ -79,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   out: {
-    color: '#FFF'
+    color: "#FFF",
   },
 }));
 

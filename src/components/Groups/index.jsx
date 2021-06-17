@@ -46,38 +46,38 @@ const Groups = () => {
         <h1 className={classes.h1}>Grupos:</h1>
       </header>
       <ul>
-      {groups.map((group) => (
-        <li className={classes.test}>
-        <Card key={group.id} className={classes.card}>
-          <Typography className={classes.title}>
-            #{group.id} - {group.name}
-          </Typography>
+        {groups.map((group) => (
+          <li key={group.id} className={classes.test}>
+            <Card className={classes.card}>
+              <Typography className={classes.title}>
+                #{group.id} - {group.name}
+              </Typography>
 
-          <Typography className={classes.description}>
-            {group.description}
-          </Typography>
-          <Button
-            onClick={() => {
-              getActivities(group.id);
-              toPage(group.id);
-            }}
-            className={classes.button}
-          >
-            Mais detalhes
-          </Button>
-          <Button
-            className={classes.button}
-            onClick={() => {
-              subGroup(group.id);
-              getGroups();
-              history.push("/dashboard");
-            }}
-          >
-            Desinscrever-se
-          </Button>
-        </Card>
-        </li>
-      ))}
+              <Typography className={classes.description}>
+                {group.description}
+              </Typography>
+              <Button
+                onClick={() => {
+                  getActivities(group.id);
+                  toPage(group.id);
+                }}
+                className={classes.button}
+              >
+                Mais detalhes
+              </Button>
+              <Button
+                className={classes.button}
+                onClick={() => {
+                  subGroup(group.id);
+                  getGroups();
+                  history.push("/dashboard");
+                }}
+              >
+                Desinscrever-se
+              </Button>
+            </Card>
+          </li>
+        ))}
       </ul>
       <Card
         className={classes.card}
