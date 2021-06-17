@@ -8,13 +8,15 @@ const useStyles = makeStyles((theme) => ({
   },
   add: {
     background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
-    "&:hover": {
-      transition: "0.6s",
-      backgroundColor: "#463446",
-      boxShadow: "1px 1px 5px 4px #FFFFFF40",
-    },
+    borderRadius: "1.9rem",
+    fontWeight: "700",
+    width: "100%",
     color: "#FFFFFF",
-    width: "150px",
+    "&&:hover": {
+      transition: "0.2s",
+      backgroundColor: "#463446",
+      boxShadow: "1px 1px 5px 4px #FFFFFF50",
+    },
   },
 
   paper: {

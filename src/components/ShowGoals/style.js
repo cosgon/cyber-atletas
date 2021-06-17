@@ -1,20 +1,73 @@
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles({
-  card: {
+const useStyles = makeStyles((theme) => ({
+  container: {
+    backgroundColor: "#00000000",
+    boxShadow: "none",
+  },
+  containerGoals: {
+    width: "90%",
     background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
-    color: "#ffffff",
-    borderRadius: "2rem",
-    textAlign: "center",
-    marginTop: "20px",
+    flexDirection: "row",
+    flexWrap: "wrap",
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "center",
+    alignItems: "space-between",
+    margin: "5px 0",
+    borderRadius: "2.3rem",
+    color: "#FFFFFF",
+  },
+  title: {
+    width: "9rem",
+    textAlign: "center",
+    "&& h4": {
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+    },
+    [theme.breakpoints.up("sm")]: {
+      width: "70%",
+    }
+  },
+  progress: {
+    width: "85%",
+    display: "flex",
+    justifyContent: "center",
     alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap",
   },
-  loading: {
-    color: "#faed26",
-    margin: "50vh auto",
+  bar: {
+    width: "75%",
+    height: "40px",
+    backgroundColor: "#5A556070",
+    borderRadius: "15px",
   },
-});
+  button: {
+    background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+    fontWeight: "700",
+    fontSize: "24px",
+    borderRadius: "100%",
+    margin: "10px 10px",
+    "&:hover": {
+      transition: "0.6s",
+      backgroundColor: "#463446",
+      boxShadow: "1px 1px 5px 4px #FFFFFF40",
+    },
+    color: "#FFFFFF",
+  },
+  buttons: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-around",
+
+  }, buttonRemove: {
+    width: "100%",
+    height: "10px",
+    display: "flex",
+    justifyContent: "flex-end",
+    alignItems: "center",
+  }
+})
+);
 
 export default useStyles;

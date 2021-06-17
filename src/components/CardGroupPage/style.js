@@ -56,11 +56,12 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     containerContent: {
+        width: "100%",
         display: "flex",
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-around",
-        alignItems: "flex-start",
+
 
     },
     containerActivities: {
@@ -69,6 +70,7 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     containerGoals: {
+        padding: "0",
         [theme.breakpoints.up("sm")]: {
             width: "40%"
         }

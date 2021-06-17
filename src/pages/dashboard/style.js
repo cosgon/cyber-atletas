@@ -9,6 +9,7 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "space-around",
     alignItems: "center",
+    flexWrap: "wrap"
   },
   userBox: {
     display: 'flex',
