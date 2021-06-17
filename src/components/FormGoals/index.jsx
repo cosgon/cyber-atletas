@@ -69,7 +69,7 @@ const FormGoals = () => {
             Dificuldade da Meta
           </InputLabel>
           <Select
-            defaultValue={"Médio"}
+            name="difficulty"
             label="Dificuldade "
             {...register("difficulty")}
           >

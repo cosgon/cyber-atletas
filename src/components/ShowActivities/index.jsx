@@ -15,21 +15,20 @@ const ShowActivities = () => {
     <Card className={classes.container}>
       <ul>
         {activities?.map((activities) => (
-          <li className={classes.card} key={activities.id}>
+          <li className={classes.flex} key={activities.id}>
             <CardContent className={classes.containerActivity}>
-              <CardContent className={classes.title}>
-                <Typography variant="h4">{activities.title}</Typography>
-              </CardContent>
-              <CardContent>
+              <CardContent className={classes.buttonRemove}>
                 <Fab
                   variant="contained"
                   color="secondary"
-                  className={classes.buttonRemove}
                   aria-label="Remove"
                   onClick={() => deleteActivity(activities.id)}
                 >
                   X
                 </Fab>
+              </CardContent>
+              <CardContent className={classes.title}>
+                <Typography variant="h4">{activities.title}</Typography>
               </CardContent>
             </CardContent>
           </li>
