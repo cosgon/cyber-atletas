@@ -6,9 +6,9 @@ const Devs = () => {
    const classes = useStyles();
 
    return (
-      <Grid>
+      <Grid className={classes.container}>
          <Typography variant='h3' className={classes.title}>
-            Desenvolvedores:
+            DEVS:
          </Typography>
          <Grid className={classes.box}>
             <IconButton

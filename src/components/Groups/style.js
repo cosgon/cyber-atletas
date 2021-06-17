@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   card: {
     background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
     color: "#FFF",
@@ -8,6 +8,19 @@ const useStyles = makeStyles({
     borderRadius: "2rem",
     textAlign: "center",
     marginTop: "20px",
+    [theme.breakpoints.down("sm")]: {
+      width: '20rem',
+      padding: '20px'
+    },
+  },
+  test: {
+   listStyle: 'none',
+  },
+  titleTest: {
+    width: '23rem',
+    [theme.breakpoints.up("sm")]: {
+      width: '45rem',
+    }
   },
   contentArea: {
     height: "100%",
@@ -51,6 +64,6 @@ const useStyles = makeStyles({
       boxShadow: "1px 1px 20px 4px #FFFFFF40",
     },
   },
-});
+}));
 
 export default useStyles;
