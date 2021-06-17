@@ -76,6 +76,7 @@ const FormHabit = () => {
               Dificuldade do Hábito
             </InputLabel>
             <Select
+              required
               name="difficulty"
               label="Dificuldade "
               className={classes.select}
