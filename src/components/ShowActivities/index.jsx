@@ -15,7 +15,7 @@ const ShowActivities = () => {
     <Card className={classes.container}>
       <ul>
         {activities?.map((activities) => (
-          <li key={activities.id}>
+          <li className={classes.flex} key={activities.id}>
             <CardContent className={classes.containerActivity}>
               <CardContent className={classes.buttonRemove}>
                 <Fab
