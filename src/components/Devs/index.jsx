@@ -16,35 +16,35 @@ const Devs = () => {
                href='https://www.linkedin.com/in/andre-nascimento-b543831a9/'
                target='_blank'
             >
-               <LinkedInIcon className={classes.linkedin}/> André Nascimento
+               <LinkedInIcon/> André Nascimento
             </IconButton>
             <IconButton
                className={classes.button}
                href='https://www.linkedin.com/in/charles-pinheiro-052356205/'
                target='_blank'
             >
-               <LinkedInIcon className={classes.linkedin}/> Charles Pinheiro
+               <LinkedInIcon/> Charles Pinheiro
             </IconButton>
             <IconButton
                className={classes.button}
                href='https://www.linkedin.com/in/eduardo-godoi-12263b122/'
                target='_blank'
             >
-               <LinkedInIcon className={classes.linkedin}/> Eduardo Godoi
+               <LinkedInIcon/> Eduardo Godoi
             </IconButton>
             <IconButton
                className={classes.button}
                href='https://www.linkedin.com/in/guilhermecosgoncalves/'
                target='_blank'
             >
-               <LinkedInIcon className={classes.linkedin}/> Guilherme Gonçalves
+               <LinkedInIcon/> Guilherme Gonçalves
             </IconButton>
             <IconButton
                className={classes.button}
                href='https://www.linkedin.com/in/mmarquelio/'
                target='_blank'
             >
-               <LinkedInIcon className={classes.linkedin}/> Maria Marquelio
+               <LinkedInIcon/> Maria Marquelio
             </IconButton>
          </Grid>
       </Grid>
