@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: "#46344E",
     backgroundImage:
@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "space-around",
     alignItems: "center",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
   },
   userBox: {
     display: 'flex',
@@ -20,6 +20,9 @@ const useStyles = makeStyles({
     width: "290px",
     borderRadius: "2.3rem",
     backgroundColor: "#5A556070",
+    [theme.breakpoints.down("sm")]: {
+      background: 'none'
+    },
   },
   resumeBox: {
     display: 'flex',
@@ -35,7 +38,7 @@ const useStyles = makeStyles({
       borderRadius: "10px",
       backgroundColor: "#463446",
       backgroundImage:
-        "linear-gradient(150deg, #9B786F 0%, rgba(90, 85, 96, 0) 20%)",
+      "linear-gradient(150deg, #9B786F 0%, rgba(90, 85, 96, 0) 20%)",
       height: "4rem",
     },
     "&::-webkit-scrollbar-thumb": {
@@ -43,8 +46,11 @@ const useStyles = makeStyles({
       borderRadius: "10px",
     },
     scrollbarFaceColor: "black",
+    [theme.breakpoints.down("sm")]: {
+      overflow: "visible",
+    },
   },
-  userImage: {
+    userImage: {
     marginTop: "10px",
     width: "130px",
     height: "130px",
@@ -75,6 +81,6 @@ const useStyles = makeStyles({
   out: {
     color: '#FFF'
   },
-});
+}));
 
 export default useStyles;
