@@ -11,6 +11,7 @@ import {
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useGroups } from "../../provider/Groups";
+import { useHistory } from "react-router-dom";
 const CardAllGroupPages = ({
   allGroups,
   previousPage,
@@ -19,6 +20,7 @@ const CardAllGroupPages = ({
   loading,
 }) => {
   const { groups, getGroups, subGroup, handleSubscribe } = useGroups();
+  const history = useHistory();
 
   const handlePreviousPage = () => {
     if (previousPage) {
@@ -39,6 +41,20 @@ const CardAllGroupPages = ({
     </div>
   ) : (
     <Container className={classes.container}>
+      <header className={classes.header}>
+        <nav>
+          <ul>
+            <li>
+              <Button
+                className={classes.HomeButton}
+                onClick={() => history.push("/dashboard")}
+              >
+                Voltar
+              </Button>
+            </li>
+          </ul>
+        </nav>
+      </header>
       <ToastContainer />
       <CardContent className={classes.titles}>
         <Typography variant="h3">Grupos:</Typography>
@@ -66,7 +82,7 @@ const CardAllGroupPages = ({
                 </Button>
               ) : (
                 <Button
-                  className={classes.button}
+                  className={classes.unSubscribeButton}
                   onClick={() => {
                     subGroup(currentGroup.id);
                     getGroups();
@@ -83,6 +99,7 @@ const CardAllGroupPages = ({
       <CardContent className={classes.containerChangePage}>
         {previousPage ? (
           <Button
+            className={classes.subscribeButton}
             variant="contained"
             color="primary"
             onClick={handlePreviousPage}
@@ -101,7 +118,7 @@ const CardAllGroupPages = ({
         )}
         {nextPage ? (
           <Button
-            className={classes.changePage}
+            className={classes.subscribeButton}
             variant="contained"
             color="primary"
             onClick={handleNextPage}
