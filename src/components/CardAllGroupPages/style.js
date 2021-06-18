@@ -88,6 +88,7 @@ const useStyles = makeStyles((theme) => ({
   },
   header: {
     margin: "20px 0 0 0",
+    marginRight: "80%",
   },
   subscribeButton: {
     borderRadius: 9,
