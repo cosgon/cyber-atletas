@@ -5,7 +5,6 @@ import { ToastContainer } from "react-toastify";
 
 import {
   CircularProgress,
-  CardActionArea,
   Grid,
   CardContent,
   Typography,
@@ -33,31 +32,29 @@ const ShowHabits = () => {
 
       {habits.map((habit) => (
         <Card className={classes.root} key={habit.id}>
-          <CardActionArea>
-            <Typography className={classes.h5} variant="h5">
-              {habit.title}
-            </Typography>
+          <Typography className={classes.h5} variant="h5">
+            {habit.title}
+          </Typography>
 
-            <CardContent className={classes.contentCard}>
-              <p className={classes.text} variant="p">
-                {habit.category}
-              </p>
-              <p className={classes.text} variant="p">
-                {habit.difficulty}
-              </p>
-              <p className={classes.text} variant="p">
-                {habit.frequency}
-              </p>
-            </CardContent>
-            <Button
-              className={classes.button}
-              onClick={() => {
-                deletehabits(habit.id);
-              }}
-            >
-              Deletar Hábito
-            </Button>
-          </CardActionArea>
+          <CardContent className={classes.contentCard}>
+            <p className={classes.text} variant="p">
+              {habit.category}
+            </p>
+            <p className={classes.text} variant="p">
+              {habit.difficulty}
+            </p>
+            <p className={classes.text} variant="p">
+              {habit.frequency}
+            </p>
+          </CardContent>
+          <Button
+            className={classes.button}
+            onClick={() => {
+              deletehabits(habit.id);
+            }}
+          >
+            Deletar Hábito
+          </Button>
         </Card>
       ))}
     </div>

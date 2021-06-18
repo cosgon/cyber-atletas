@@ -8,19 +8,21 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "2rem",
     textAlign: "center",
     marginTop: "20px",
+    marginBottom: "20px",
     [theme.breakpoints.down("sm")]: {
-      width: '20rem',
-      padding: '20px'
+      width: "18rem",
+      padding: "20px",
     },
   },
+
   test: {
-   listStyle: 'none',
+    listStyle: "none",
   },
   titleTest: {
-    width: '23rem',
+    width: "23rem",
     [theme.breakpoints.up("sm")]: {
-      width: '45rem',
-    }
+      width: "45rem",
+    },
   },
   contentArea: {
     height: "100%",
@@ -57,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "2rem",
   },
   button: {
-    color: '#463446',
+    color: "#463446",
     "&:hover": {
       transition: "0.6s",
       color: "#F5F5F5",
