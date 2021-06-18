@@ -1,15 +1,20 @@
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
    title: {
       color: '#FFF',
       fontWeight: '900',
+      textAlign: 'center',
+      marginTop: '8px',
+      [theme.breakpoints.down("sm")]: {
+   
+       },
    },
    box: {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-evenly',
-      height: '31rem',
+      height: '26rem',
       alignItems: 'center',
       textAlign: 'left',
    },
@@ -26,6 +31,6 @@ const useStyles = makeStyles({
          boxShadow: "1px 1px 5px 4px #FFFFFF40",
       },
    },
-});
+}));
 
 export default useStyles;

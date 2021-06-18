@@ -19,7 +19,7 @@ const Groups = () => {
     baseURL: "https://kabit-api.herokuapp.com/",
   });
 
-  const { groups, setSelected, getActivities, subGroup, selected, getGroups } =
+  const { groups, setSelected, getActivities, subGroup, getGroups } =
     useGroups();
 
   const [loading, setLoading] = useState(false);
@@ -42,39 +42,43 @@ const Groups = () => {
       <Grid className={classes.groupsModal}>
         <GroupsModal api={api} setLoading={setLoading} />
       </Grid>
+      <header className={classes.titleTest}>
+        <h1 className={classes.h1}>Grupos:</h1>
+      </header>
+      <ul>
+        {groups.map((group) => (
+          <li key={group.id} className={classes.test}>
+            <Card className={classes.card}>
+              <Typography className={classes.title}>
+                #{group.id} - {group.name}
+              </Typography>
 
-      <h1 className={classes.h1}>Grupos:</h1>
-
-      {groups.map((group) => (
-        <Card key={group.id} className={classes.card}>
-          <Typography className={classes.title}>
-            #{group.id} - {group.name}
-          </Typography>
-
-          <Typography className={classes.description}>
-            {group.description}
-          </Typography>
-          <Button
-            onClick={() => {
-              getActivities(group.id);
-              toPage(group.id);
-            }}
-            className={classes.button}
-          >
-            Mais detalhes
-          </Button>
-          <Button
-            className={classes.button}
-            onClick={() => {
-              subGroup(group.id);
-              getGroups();
-              history.push("/dashboard");
-            }}
-          >
-            Desinscrever-se
-          </Button>
-        </Card>
-      ))}
+              <Typography className={classes.description}>
+                {group.description}
+              </Typography>
+              <Button
+                onClick={() => {
+                  getActivities(group.id);
+                  toPage(group.id);
+                }}
+                className={classes.button}
+              >
+                Mais detalhes
+              </Button>
+              <Button
+                className={classes.button}
+                onClick={() => {
+                  subGroup(group.id);
+                  getGroups();
+                  history.push("/dashboard");
+                }}
+              >
+                Desinscrever-se
+              </Button>
+            </Card>
+          </li>
+        ))}
+      </ul>
       <Card
         className={classes.card}
         onClick={() => history.push("/AllGroupsPage")}
