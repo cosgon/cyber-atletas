@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: "#46344E",
     backgroundImage:
@@ -9,24 +9,27 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "space-around",
     alignItems: "center",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
   },
   userBox: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "space-evenly",
     height: "553px",
     width: "290px",
     borderRadius: "2.3rem",
     backgroundColor: "#5A556070",
+    [theme.breakpoints.down("sm")]: {
+      background: "none",
+    },
   },
   resumeBox: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
     height: "553px",
-    alignContent: 'flex-start',
-    justifyContent: 'space-evenly',
+    alignContent: "flex-start",
+    justifyContent: "space-evenly",
     width: "700px",
     borderRadius: "1.7rem",
     backgroundColor: "#5A556070",
@@ -43,6 +46,10 @@ const useStyles = makeStyles({
       borderRadius: "10px",
     },
     scrollbarFaceColor: "black",
+    [theme.breakpoints.down("sm")]: {
+      overflow: "visible",
+      height: "auto",
+    },
   },
   userImage: {
     marginTop: "10px",
@@ -73,8 +80,8 @@ const useStyles = makeStyles({
     },
   },
   out: {
-    color: '#FFF'
+    color: "#FFF",
   },
-});
+}));
 
 export default useStyles;

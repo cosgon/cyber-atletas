@@ -1,18 +1,17 @@
 import useStyles from "./style";
 import {
   CircularProgress,
-  CardActionArea,
-  CardActions,
   CardContent,
   Typography,
   Button,
   Card,
+  Container,
 } from "@material-ui/core";
-import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useGroups } from "../../provider/Groups";
-import { useLogin } from "../../provider/Login";
+import { useHistory } from "react-router-dom";
 const CardAllGroupPages = ({
   allGroups,
   previousPage,
@@ -20,9 +19,8 @@ const CardAllGroupPages = ({
   setEndPoint,
   loading,
 }) => {
-  const api = axios.create({ baseURL: "https://kabit-api.herokuapp.com" });
-  const classes = useStyles();
-  const { groups, getGroups, subGroup } = useGroups();
+  const { groups, getGroups, subGroup, handleSubscribe } = useGroups();
+  const history = useHistory();
 
   const handlePreviousPage = () => {
     if (previousPage) {
@@ -35,67 +33,56 @@ const CardAllGroupPages = ({
       setEndPoint(nextPage);
     }
   };
-  const { token } = useLogin();
 
-  const handleSubscribe = (id) => {
-    api
-      .post(`/groups/${id}/subscribe/`, null, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then(() => {
-        toast.success("Inscrito no grupo!");
-        getGroups();
-      })
-      .catch((error) => toast.error(`${error}`));
-  };
+  const classes = useStyles();
   return loading ? (
-    <div className={classes.container}>
-      <CircularProgress className={classes.loading} />
+    <div className={classes.loading}>
+      <CircularProgress />
     </div>
   ) : (
-    <div className={classes.container}>
+    <Container className={classes.container}>
+      <header className={classes.header}>
+        <nav>
+          <ul>
+            <li>
+              <Button
+                className={classes.HomeButton}
+                onClick={() => history.push("/dashboard")}
+              >
+                Voltar
+              </Button>
+            </li>
+          </ul>
+        </nav>
+      </header>
       <ToastContainer />
-      <h1 className={classes.h1}>Grupos:</h1>
-      {allGroups?.map((currentGroup, index) => {
-        return (
-          <Card className={classes.root} key={index}>
-            <CardActionArea className={classes.details}>
-              <CardContent>
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  component="h2"
-                  className={classes.text}
-                >
+      <CardContent className={classes.titles}>
+        <Typography variant="h3">Grupos:</Typography>
+      </CardContent>
+      <ul className={classes.boxAllGroups}>
+        {allGroups?.map((currentGroup) => {
+          return (
+            <li key={currentGroup.id} className={classes.containerGroup}>
+              <CardContent className={classes.title}>
+                <Typography variant="h5">
                   #{currentGroup.id} - {currentGroup.name}
                 </Typography>
-                <Typography
-                  variant="body2"
-                  color="textSecondary"
-                  component="p"
-                  className={classes.text}
-                >
-                  {currentGroup.description}
-                </Typography>
+                <Typography>{currentGroup.description}</Typography>
               </CardContent>
-            </CardActionArea>
-            <CardActions>
               {groups.filter(
                 (currentSubGroup) => currentSubGroup.id === currentGroup.id
               ).length === 0 ? (
                 <Button
                   className={classes.subscribeButton}
                   variant="contained"
-                  color="primary"
+                  color="secondary"
                   onClick={() => handleSubscribe(currentGroup.id)}
                 >
                   inscreva-se
                 </Button>
               ) : (
                 <Button
-                  className={classes.button}
+                  className={classes.unSubscribeButton}
                   onClick={() => {
                     subGroup(currentGroup.id);
                     getGroups();
@@ -104,14 +91,15 @@ const CardAllGroupPages = ({
                   Desinscrever
                 </Button>
               )}
-            </CardActions>
-          </Card>
-        );
-      })}
-      <div className={classes.changePageContainer}>
+            </li>
+          );
+        })}
+      </ul>
+
+      <CardContent className={classes.containerChangePage}>
         {previousPage ? (
           <Button
-            className={classes.changePage}
+            className={classes.subscribeButton}
             variant="contained"
             color="primary"
             onClick={handlePreviousPage}
@@ -119,11 +107,18 @@ const CardAllGroupPages = ({
             Anterior
           </Button>
         ) : (
-          <div></div>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handlePreviousPage}
+            disabled
+          >
+            Anterior
+          </Button>
         )}
         {nextPage ? (
           <Button
-            className={classes.changePage}
+            className={classes.subscribeButton}
             variant="contained"
             color="primary"
             onClick={handleNextPage}
@@ -131,10 +126,18 @@ const CardAllGroupPages = ({
             Proximo
           </Button>
         ) : (
-          <div></div>
+          <Button
+            className={classes.changePage}
+            variant="contained"
+            color="primary"
+            onClick={handleNextPage}
+            disabled
+          >
+            Proximo
+          </Button>
         )}
-      </div>
-    </div>
+      </CardContent>
+    </Container>
   );
 };
 export default CardAllGroupPages;
