@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# Cyber Atletas
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Projeto Voltado para o gerenciamento de hábitos de atletas que gostariam de melhorar seu rendimento e novos atletas que querem pontuar seus objetivos e adquirir novos hábitos.
 
-## Available Scripts
+## Problemas a serem solucionados =>
 
-In the project directory, you can run:
+A falta de controle de novos hábitos e a dificuldade de anotar atividades que são importantes para um atleta.
 
-### `yarn start`
+### Features do Projeto =>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Home
+- Register
+- Login
+- Dashboard
+- Habitos
+- Grupos
+- Página de Grupos
+- Activities
+- Goals
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Bibliotecas React Utilizadas =>
 
-### `yarn test`
+- @material-ui/core
+- @material-ui/icons
+- @material-ui/styles
+- @hookform/resolvers
+- react-hook-form
+- react-yup
+- yup
+- react-router-dom
+- axios
+- react-tosastify
+- jwt-decode
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**_Linha para adicionar_**
 
-### `yarn build`
+```shell
+yarn add @material-ui/core @material-ui/icons @material-ui/styles @hookform/resolvers react-hook-form react-yup yup react-router-dom axios react-tosastify jwt-decode
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+_ou_
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```shell
+npm install @material-ui/core @material-ui/icons @material-ui/styles @hookform/resolvers react-hook-form react-yup yup react-router-dom axios react-tosastify jwt-decode
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Interface =>
 
-### `yarn eject`
+![dashboard desktop](https://www.imagemhost.com.br/images/2021/06/17/Screenshot-from-2021-06-17-18-25-27.png "Dashboard Desktop")
+![dashboard mobile](https://www.imagemhost.com.br/images/2021/06/17/mobile.png "Dashboard Mobile")
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Equipe =>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Projeto todo implementado pelos Devs:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- [Charles Pinheiro](https://www.linkedin.com/in/charles-pinheiro-052356205/) _**(P.O.)**_
+- [André Nascimento](https://www.linkedin.com/in/andre-nascimento-b543831a9/) _**(T.L.)**_
+- [Guilherme Gonçalves](https://www.linkedin.com/in/guilhermecosgoncalves/) _**(S.M.)**_
+- [Eduardo Godoi](https://www.linkedin.com/in/eduardo-godoi-12263b122/) _**(Q.A.)**_
+- [Maria Marquelio](https://www.linkedin.com/in/mmarquelio/) _**(Q.A.)**_
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Cada dev além de codar executou funções que são padrões em grandes projetos para treinamento de como são feitos os projetos.
 
-## Learn More
+### Ferramentas =>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Projeto todo seguindo a metodologia do _Scrum_, tendo como cerimonias as dailies e a retrospectiva, sendo desenvolvido em duas sprints de uma semana.
+Para a organização de tarefas e features a serem feitas foi empregado o uso da ferramenta _Trello_, organização de documentos e planejamento geral _Notion_, e para crianção da interface o _Figma_
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Complexidade =>
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Projeto com várias features para implementar e com vários endpoints da Api, um dos primeiros projetos mais complexos em grupo com várias novas funções à serem cumpridas, nível considerável de complexidade _8/10_.
